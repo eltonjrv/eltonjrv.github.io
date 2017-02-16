@@ -3,13 +3,10 @@ This repository contains ad-hoc bioinformatics approaches aimed to analyze metag
 
 Research group: Elton Vasconcelos, Brian Oakley and Pedro Diniz
 
-College of Veterinary Medicine at Western University of Health Sciences
+College of Veterinary Medicine at Western University of Health Sciences, Pomona, CA
 
-Pomona, CA
+* Building a Computational Workflow for Metagenomics in Veterinary Medicine
 
-Building a Computational Workflow for Metagenomics in Veterinary Medicine
-Elton Vasconcelos, DVM Ph.D; Brian Oakley, Ph.D; Pedro Diniz, DVM Ph.D
-College of Veterinary Medicine, Western University of Health Sciences, Pomona, CA
 Metagenomics is a relatively new field that utilizes high-throughput DNA sequencing
 technologies to characterize entire communities of microorganisms that are present within
 environmental or biological samples of interest. In the last decade, metagenomics has already
