@@ -33,6 +33,6 @@ for i in `ls *OTUs/*nonChim_otus.txt`; do cut -f 1 $i | xargs -i grep '{} ' ../.
 ### Generating OTU tables
 for i in `ls *nonChim.fasta`; do pick_closed_reference_otus.py -i $i -r ../../16S-DBs/ARB-SILVA/SSURef_NR99_128_SILVA_07_09_16_opt-typeStrains-UbyT.fasta -s -p parameter.txt -f -o `echo $i | sed 's/\-.*$//g'`-closed_ref_OTUs; done 
 
-## Plotting summary charts on a batch
+## Plotting summary charts for all the samples
 merge_otu_tables.py -i `ls *ref_OTUs/otu_table.biom | xargs | sed 's/ /,/g'` -o otu_table-All.biom 
 summarize_taxa_through_plots.py -i otu_table-All.biom -m newSampleIDs.tab -p parameter.txt -f -o OTUsPlots-silva
