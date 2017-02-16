@@ -1,0 +1,48 @@
+#!/usr/bin/bash
+# Programmer: Elton Vasconcelos (08/Feb/2017)
+# Usage: bash qiime-pipe-demultiplexing.bsh [qiime-suitable mapFile]
+####################################################################
+# ATTENTION: 
+# The paired-end fastq.gz files must exist in the current directory
+# The user must prepare a qiime-suitable mapFile [1st argument and only argument of the script], which will be specified on the -m option from split_libraries.py qiime script.
+# One must also have EMBOSS tools installed in order to run 'revseq' program
+
+## Activating QIIME first
+source activate qiime1
+
+count=0;
+
+#Find files of type .fastq, assign each to a file
+
+for file in *.fastq.gz
+do
+count=$((count+1))
+if [ "$count" -eq 1 ]; then
+R1=$file
+fi
+if [ "$count" -eq 2 ]; then
+R2=$file
+
+#Make new variable to hold base file name (one must change the sed expression below according to his own file names' structure)
+R3=$(echo $file | sed -e 's/_S[0-9]*_L001_R2_001\.fastq\.gz//g')
+
+## Joining the mates (in paired-end cases where the amplicon is less than twice the reads' length)
+join_paired_ends.py -f $R1 -r $R2 -o $R3-joined -j 10 -p 25
+
+## Converting fastq to both fasta and qual separate files
+convert_fastaqual_fastq.py -f $R3-joined/fastqjoin.join.fastq -c fastq_to_fastaqual -F -o $R3-fastaqual
+
+## Demultiplexing for forward barcodes (the user must prepare a qiime-suitable mapFile to specify on -m option, which is the 1st argument when invoking this script)
+split_libraries.py -m $1 -f $R3-fastaqual/fastqjoin.join.fna -q $R3-fastaqual/fastqjoin.join.qual -l 30 -s 20 -w 50 -a 8 -H 8 -p -e 2 -b hamming_8 -o $R3-iNextF_splitOUT
+revseq -sequence $R3-iNextF_splitOUT/seqs.fna -outseq $R3-iNextF_splitOUT/seqs-rc.fna
+
+## Demultiplexing for reverse barcodes
+split_libraries.py -m $1 -f $R3-iNextF_splitOUT/seqs-rc.fna -l 30 -a 8 -H 8 -p -e 2 -b hamming_8 -o $R3-iNextR_splitOUT
+revseq -sequence $R3-iNextR_splitOUT/seqs.fna -outseq $R3-demultiplexed.fna
+
+
+count=0
+
+
+fi
+done
