@@ -1,1 +1,1 @@
-# Files that are used by our QIIME pipeline
+# Accessory files that are used by our QIIME pipeline
