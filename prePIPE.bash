@@ -10,19 +10,17 @@ bash qiimePipe-demultiplexing.bsh
 ### Catching our samples and relabelling each sequence (adding Diniz's study labels)
 for i in `ls *fna`; do perl catching_samples_after_demultiplexing-QIIMEpipe.pl $i metaSampleID-studyLabel-barCodes-prep.tab >`echo $i | sed 's/\.fna/\-DinizLabels.fasta/g'`; done
 
-### Preparing a summary of the sequences content in each sample
+### Screening for chimeras using usearch aligner and SILVA type strains 16S db as reference
+#$ for i in `ls *Labels.fasta`; do identify_chimeric_seqs.py -i $i -r ../../16S-DBs/PATRIC/16s_RNA_PATRIC.frn -m usearch61 -o `echo $i | sed 's/\-.*//g'`-chimScreenOUT; done
+for i in `ls *Labels.fasta`; do identify_chimeric_seqs.py -i $i -r ../../16S-DBs/ARB-SILVA/SSURef_NR99_128_SILVA_07_09_16_opt-typeStrains-UbyT.fasta -m usearch61 --non_chimeras_retention intersection -o `echo $i | sed 's/\-.*//g'`-chimScreenOUT; done
+for i in `ls -d *chimScreenOUT`; do  perl /home/elton/bioinformatics-tools/perl-scripts/seqs1.pl -outfmt fasta -incl $i/non_chimeras.txt -seq `echo $i | sed 's/\-chimScreenOUT//g'`-demultiplexed-DinizLabels.fasta  >`echo $i | sed 's/\-chimScreenOUT//g'`-demultiplexed-DinizLabels-nonChim.fasta; done
+
+### Preparing a summary of the sequences content in each sample after all the tiltering steps performed above
 wc -l *joined/fastqjoin.join.fastq | sed -r 's/^ +//g' | sed 's/ /\t/g' | awk '{ print $2 "\t" $1 / 4 }' >numSeqs-joined.txt
 grep -c '>' *fastaqual/fastqjoin.join.fna | sed 's/\:/\t/g' >numSeqs-fastaqual.txt 
 grep -c '>' *F_splitOUT/seqs.fna | sed 's/\:/\t/g' >numSeqs-iNextF-demultiplexed.txt 
 grep -c '>' *R_splitOUT/seqs.fna | sed 's/\:/\t/g' >numSeqs-iNextR-demultiplexed.txt 
 grep -c '>' *Labels.fasta | sed 's/\:/\t/g' >numSeqs-DinizLabels.txt
-paste numSeqs-joined.txt numSeqs-fastaqual.txt numSeqs-iNextF-demultiplexed.txt numSeqs-iNextR-demultiplexed.txt numSeqs-DinizLabels.txt >qiimePipe-Summary.tsv
-
-### Screening for chimeras using usearch aligner and PATRIC 16S db as reference
-#$ for i in `ls *Labels.fasta`; do identify_chimeric_seqs.py -i $i -r ../../16S-DBs/PATRIC/16s_RNA_PATRIC.frn -m usearch61 -o `echo $i | sed 's/\-.*//g'`-chimScreenOUT; done
-for i in `ls *Labels.fasta`; do identify_chimeric_seqs.py -i $i -r ../../16S-DBs/ARB-SILVA/SSURef_NR99_128_SILVA_07_09_16_opt-typeStrains-UbyT.fasta -m usearch61 --non_chimeras_retention intersection -o `echo $i | sed 's/\-.*//g'`-chimScreenOUT; done
-for i in `ls -d *chimScreenOUT`; do  perl /home/elton/bioinformatics-tools/perl-scripts/seqs1.pl -outfmt fasta -incl $i/non_chimeras.txt -seq `echo $i | sed 's/\-chimScreenOUT//g'`-demultiplexed-DinizLabels.fasta  >`echo $i | sed 's/\-chimScreenOUT//g'`-demultiplexed-DinizLabels-nonChim.fasta; done
-## Adding the number of non-chimera seqs in each sample to the Summary table created on line 18
 wc -l *chimScreenOUT/non_chimeras.txt | head -26 | sed -r 's/^ +//g' | sed 's/ /\t/g' | awk '{ print $2 "\t" $1 }' >numSeqs-non_chimeras.txt
 paste numSeqs-joined.txt numSeqs-fastaqual.txt numSeqs-iNextF-demultiplexed.txt numSeqs-iNextR-demultiplexed.txt numSeqs-DinizLabels.txt numSeqs-non_chimeras.txt >qiimePipe-Summary.tsv 
 
