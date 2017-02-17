@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 ### This is a pilot pipeline using both ad-hoc PERL scripts (placed in the bin branch) and QIIME tools (http://qiime.org/scripts/index.html)
 
 ### One must have QIIME installed and run the following command before starting the pipeline
