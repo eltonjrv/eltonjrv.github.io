@@ -2,7 +2,7 @@
 # Programmer: Elton Vasconcelos (10/Mar/2017)
 # Usage: perl parseThermoPhyl.pl [target_species_names.txt] [raw_search_results.txt] [sorted_search_results.txt]
 ################################################################################################################
-# The target_species_names.txt file must be a list of species name (Genus species) one per line.
+# The target_species_names.txt file must be a list of species names (Genus species) one per line.
 # The other two inputs are the default outputs from ThermoPhyl.
 # The output will be named best_candidates.tab, which will contain the primer_pairs that amplify all the target species and less than 1000 non-target sequences.
 
