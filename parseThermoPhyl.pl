@@ -28,6 +28,8 @@ chomp($line);
 
 my(@array, $c, $primerID, @caught_species, @uniq_caught_species);
 
+`echo -e "Primer_pair\tTarget_matches\tNon_target_matches\tF\tF_pos\tR_motif\tR_pos\tamp_length" >best_candidates.tsv`;
+
 while ($line ne "") {
 	if ($line =~ m/^[YN]\t/) {
 		$c = 0;
@@ -53,7 +55,6 @@ while ($line ne "") {
 		if (@uniq_caught_species == @species && $c <= $ARGV[3]) {   # All target species were caught together with less than 1000 non-target species
 			print ("Primer_pair $primerID caught all target species and less than $ARGV[3] non-target sequences\n");
 			`grep -P \'^$primerID\t\' $ARGV[2] >>best_candidates.tsv`;
-			print ("--\n");
 		}
 
 	}	
