@@ -40,7 +40,7 @@ alpha_diversity.py -i otu_table.biom -o aDiv-metrics.tsv -m observed_otus,observ
 alpha_rarefaction.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab -o aRarefaction
 # among samples
 beta_diversity.py -i otu_table.biom -t rep_set.tre -o bDiv -m bray_curtis,weighted_unifrac
-beta_diversity_through_plots.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab -o bDivPlots
+beta_diversity_through_plots.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab --color_by_all_fields -o bDivPlots
 
 
 
