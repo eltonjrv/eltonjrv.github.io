@@ -31,13 +31,16 @@ pick_rep_set.py -i otu_table.biom -f ../seqs.fna -m most_abundant -o rep_set
 # assign_taxonomy.py -i rep_set/seqs_rep_set.fasta -o OTUtax  #This task is already embedded in pick_de_novo_otus.py command
 
 ### Plotting taxnomoic classification charts
-make_otu_heatmap.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab -o heatmap_plot.pdf
+make_otu_heatmap.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab -o heatmap_plot-genusLevel.pdf --obs_md_level 6
 summarize_taxa_through_plots.py -i otu_table.biom -m ../newSampleIDs.tab -p parameter.txt -f -o summaryPlots
 
 ### Statistical metrics
 # within each sample
 alpha_diversity.py -i otu_table.biom -o aDiv-metrics.tsv -m observed_otus,observed_species,chao1,shannon,simpson,goods_coverage
-# between samples
+alpha_rarefaction.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab -o aRarefaction
+# among samples
+beta_diversity.py -i otu_table.biom -t rep_set.tre -o bDiv -m bray_curtis,weighted_unifrac
+beta_diversity_through_plots.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab -o bDivPlots
 
 
 
