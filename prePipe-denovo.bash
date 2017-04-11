@@ -27,8 +27,6 @@ paste numSeqs-joined.txt numSeqs-fastaqual.txt numSeqs-iNextF-demultiplexed.txt 
 cat *nonChim.fasta >seqs.fna
 pick_de_novo_otus.py -i seqs.fna -o dnOTUs
 cd dnOTUs
-# pick_rep_set.py -i otu_table.biom -f ../seqs.fna -m most_abundant -o rep_set  #This task is already embedded in pick_de_novo_otus.py command
-# assign_taxonomy.py -i rep_set/seqs_rep_set.fasta -o OTUtax  #This task is already embedded in pick_de_novo_otus.py command
 
 ### Plotting taxnomoic classification charts
 make_otu_heatmap.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab -o heatmap_plot-genusLevel.pdf --obs_md_level 6
