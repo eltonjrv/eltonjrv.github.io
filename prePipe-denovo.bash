@@ -25,7 +25,7 @@ paste numSeqs-joined.txt numSeqs-fastaqual.txt numSeqs-iNextF-demultiplexed.txt 
 
 ### Picking OTUs
 cat *nonChim.fasta >seqs.fna
-pick_de_novo_otus.py -i seqs.fna -o dnOTUs
+pick_de_novo_otus.py -i seqs.fna -o dnOTUs -p parameters.txt
 cd dnOTUs
 
 ### Plotting taxnomoic classification charts
