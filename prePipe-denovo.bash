@@ -37,8 +37,9 @@ summarize_taxa_through_plots.py -i otu_table.biom -m ../newSampleIDs.tab -p para
 alpha_diversity.py -i otu_table.biom -o aDiv-metrics.tsv -m observed_otus,observed_species,chao1,shannon,simpson,goods_coverage
 alpha_rarefaction.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab -o aRarefaction
 # among samples
-beta_diversity.py -i otu_table.biom -t rep_set.tre -o bDiv -m bray_curtis,weighted_unifrac
-beta_diversity_through_plots.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab --color_by_all_fields -o bDivPlots
-
+#beta_diversity.py -i otu_table.biom -t rep_set.tre -o bDiv -m bray_curtis,weighted_unifrac #does not generate PCoA plots
+beta_diversity_through_plots.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab -p ../parameters.txt --color_by_all_fields -o bDivPlots
+cd bDivPlots/
+compare_categories.py --method adonis -i weighted_unifrac_dm.txt -m ../../newSampleIDs.tab -c Description -o adonis_out -n 999
 
 
