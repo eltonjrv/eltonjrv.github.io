@@ -1,0 +1,7 @@
+pick_otus:otu_picking_method	uclust
+pick_otus:enable_rev_strand_match	True
+assign_taxonomy:id_to_taxonomy_fp	ownDB-qiimeGG-tax.txt
+assign_taxonomy:reference_seqs_fp	ownDB-qiimeGG.fasta
+pick_rep_set:rep_set_picking_method	most_abundant
+plot_taxa_summary:chart_type	pie,bar,area
+beta_diversity:metrics	bray_curtis,weighted_unifrac
