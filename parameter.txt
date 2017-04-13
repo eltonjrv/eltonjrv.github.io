@@ -1,4 +1,0 @@
-pick_otus:otu_picking_method    usearch61_ref
-pick_otus:enable_rev_strand_match True
-plot_taxa_summary:chart_type	pie,bar
-
