@@ -40,6 +40,7 @@ alpha_rarefaction.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab -o 
 #beta_diversity.py -i otu_table.biom -t rep_set.tre -o bDiv -m bray_curtis,weighted_unifrac #does not generate PCoA plots
 beta_diversity_through_plots.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab -p ../parameters.txt --color_by_all_fields -o bDivPlots
 cd bDivPlots/
+### ATTENTION below
 # After removing both column and row of the negative control (NoFlea-M5) on the weighted_unifrac_dm-woNoFlea.txt, and commenting that sample line in the mapFile, the following command will compare SouthCA and NorthCA fleas (regarding their OTUs' content) using ADONIS (an adapted permonova statistical analysis)
 compare_categories.py --method adonis -i weighted_unifrac_dm-woNoFlea.txt -m newSampleIDs-woNoFlea.tab -c Description -o adonis_out-woNoFlea -n 999
 
