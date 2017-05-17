@@ -1,0 +1,13 @@
+### PICRUSt cmds
+$ normalize_by_copy_number.py -i otu_table.biom -o normalized_otus.biom
+$ predict_metagenomes.py -i normalized_otus.biom -o metagenome_predictions.biom -a nsti_per_sample.tab
+$ predict_metagenomes.py -i normalized_otus.biom -f -o metagenome_predictions.tab
+$ metagenome_contributions.py -i normalized_otus.biom -o ko_metagenome_contributions.tab
+$ categorize_by_function.py -i metagenome_predictions.biom -c "KEGG_Pathways" -l 2 -o metagenome_at_level2.biom
+$ categorize_by_function.py -i metagenome_predictions.biom -c "KEGG_Pathways" -l 2 -f -o metagenome_at_level2.tab
+### QIIME cmds on metagenome and KO predictions
+$ summarize_taxa_through_plots.py -i metagenome_at_level2.biom -p parameters-ref-picrust.txt -o plots_at_level2
+$ alpha_diversity.py -i metagenome_at_level2.biom -o aDiv-metrics-KOl2.tsv -m observed_otus,observed_species,chao1,shannon,simpson,goods_coverage
+$ alpha_rarefaction.py -i metagenome_at_level2.biom -t ../97_otus.tree -m ../../sampleIDs-wDescrip.tab -o aRarefaction-KOl2
+$ beta_diversity_through_plots.py -i metagenome_at_level2.biom  -m ../../sampleIDs-wDescrip.tab -p parameters-ref-picrust.txt --color_by_all_fields -f -o bDivPlots-KOl2
+$ make_distance_boxplots.py -d bDivPlots-KOl2/bray_curtis_dm.txt -m ../../sampleIDs-wDescrip.tab -f "Description" -o boxPlot-KOl2
