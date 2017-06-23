@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 # Programmer: Elton Vasconcelos (08/Feb/2017)
-# Usage: bash qiime-pipe-demultiplexing.bsh [qiime-suitable mapFile]
+# Usage: bash qiimePipe-demultiplexing.bsh [qiime-suitable mapFile]
 ####################################################################
 # ATTENTION: 
 # The paired-end fastq.gz files must exist in the current directory
