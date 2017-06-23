@@ -27,9 +27,8 @@ paste numSeqs-joined.txt numSeqs-fastaqual.txt numSeqs-iNextF-demultiplexed.txt 
 ### Picking OTUs
 cat *nonChim.fasta >seqs.fna
 pick_de_novo_otus.py -i seqs.fna -o dnOTUs -p parameters.txt
-cd dnOTUs
 
-### Plotting taxnomoic classification charts
+### Plotting taxonomic classification charts
 make_otu_heatmap.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab -o heatmap_plot-genusLevel.pdf --obs_md_level 6
 summarize_taxa_through_plots.py -i otu_table.biom -m ../newSampleIDs.tab -p parameter.txt -f -o summaryPlots
 
@@ -40,7 +39,6 @@ alpha_rarefaction.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab -o 
 # among samples
 #beta_diversity.py -i otu_table.biom -t rep_set.tre -o bDiv -m bray_curtis,weighted_unifrac #does not generate PCoA plots
 beta_diversity_through_plots.py -i otu_table.biom -t rep_set.tre -m ../newSampleIDs.tab -p ../parameters.txt --color_by_all_fields -o bDivPlots
-cd bDivPlots/
 ### ATTENTION below
 # After removing both column and row of the negative control (NoFlea-M5) on the weighted_unifrac_dm-woNoFlea.txt, and commenting that sample line in the mapFile, the following command will compare SouthCA and NorthCA fleas (regarding their OTUs' content) using ADONIS (an adapted permonova statistical analysis)
 compare_categories.py --method adonis -i weighted_unifrac_dm-woNoFlea.txt -m newSampleIDs-woNoFlea.tab -c Description -o adonis_out-woNoFlea -n 999
