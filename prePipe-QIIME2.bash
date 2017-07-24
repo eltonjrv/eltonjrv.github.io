@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 # Programmer: Elton Vasconcelos, DVM, PhD
+# July, 2017
 ### This is a pilot pipeline using both ad-hoc PERL scripts (placed in the "bin" branch) and QIIME2 tools (https://qiime2.org).
 ### Accesories files used in some commands are placed within "accFiles" branch
 ### If you use this whole tool or part of it, please cite this github page acknowledging the author (Vasconcelos, EJ) as well as QIIME2.
