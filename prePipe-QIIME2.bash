@@ -84,7 +84,7 @@ qiime emperor plot --i-pcoa core-metrics-results/bray_curtis_pcoa_results.qza --
 cd ../
 
 ###################################
-#### Tanxonomic classification ####
+#### Taxonomic classification #####
 ###################################
 mkdir 04-taxClass
 cd 04-taxClass/
