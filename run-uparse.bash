@@ -43,9 +43,9 @@ usearch -cluster_otus $out/uniques.fa -relabel Otu -otus $out/otus.fa
 usearch -unoise3 $out/uniques.fa -zotus $out/zotus.fa
 
 # Create OTU table for 97% OTUs
-usearch -otutab $out/merged.fq -otus $out/otus.fa -strand plus -otutabout $out/otu_table_uparse.tsv -mapout otu_map.txt
+usearch -otutab $out/merged.fq -otus $out/otus.fa -strand plus -otutabout $out/otu_table_uparse.tsv -mapout $out/otu_map.txt
 # Create OTU table for ZOTUs	(ZOTUs are 100% identical OTUs)
-usearch -otutab $out/merged.fq -zotus $out/zotus.fa -strand plus -otutabout $out/zotu_table_uparse.tsv -mapout zotu_map.txt
+usearch -otutab $out/merged.fq -zotus $out/zotus.fa -strand plus -otutabout $out/zotu_table_uparse.tsv -mapout $out/zotu_map.txt
 
 #########################################################################################################
 
