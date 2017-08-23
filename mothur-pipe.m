@@ -1,5 +1,21 @@
-### After running make.contigs individually for each sample (see cmd-line.txt and mkctg-individual-outputs dir), run he following pipeline as a mothur script:
-
+# Mothur pipeline learned from Pat Schloss during "Mothur Workshop", April 2017.
+# Adjustments by Elton Vasconcelos for my particular data type.
+################################################################################
+# Before running this pipeline with $ mothur mothur-pipe.m, I had to run make.contigs individually for each fastq pair, with the following bash command:
+# $ for o in `ls oligos-prep/oligos_*`; do f=M`echo $o | sed 's/.*M//g' | sed 's/\.tab//g'`_S`echo $o | sed 's/.*M//g' | sed 's/\.tab//g'`_L001_R1_001.fastq; r=M`echo $o | sed 's/.*M//g' | sed 's/\.tab//g'`_S`echo $o | sed 's/.*M//g' | sed 's/\.tab//g'`_L001_R2_001.fastq; mothur "#make.contigs(ffastq=$f, rfastq=$r, oligos=$o, bdiffs=1, pdiffs=2, checkorient=t,  processors=6)"; done
+# Merging all the outputs from the individual make.contigs runs
+# mkdir mkctg-individual-outputs
+# mv *.contigs.* mkctg-individual-outputs/
+# mv mothur.149435* mkctg-individual-outputs/
+# mv mothur.150285* mkctg-individual-outputs/
+# cat mkctg-individual-outputs/*.groups >fleas.contigs.groups
+# cat mkctg-individual-outputs/*.report >fleas.contigs.report
+# cat mkctg-individual-outputs/*.scrap.contigs.fasta >fleas.scrap.contigs.fasta
+# cat mkctg-individual-outputs/*.scrap.contigs.qual >fleas.scrap.contigs.qual
+# cat mkctg-individual-outputs/*.trim.contigs.qual >fleas.trim.contigs.qual
+# cat mkctg-individual-outputs/*.trim.contigs.fasta >fleas.trim.contigs.fasta
+###############################################################################
+### Running mothur whole pipeline
 ### Removing undesireable sequences
 summary.seqs(fasta=fleas.trim.contigs.fasta)
 get.current()
