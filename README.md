@@ -6,7 +6,7 @@ Research group: Elton Vasconcelos, DVM Ph.D; Brian Oakley, Ph.D; Pedro Diniz, DV
 College of Veterinary Medicine at Western University of Health Sciences, Pomona, CA
 
 ### Our rationale
-* Building a Computational Workflow for Metagenomics in Veterinary Medicine
+## Building a Computational Workflow for Metagenomics in Veterinary Medicine
 
 Metagenomics is a relatively new field that utilizes high-throughput DNA sequencing
 technologies to characterize entire communities of microorganisms that are present within
