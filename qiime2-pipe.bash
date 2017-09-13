@@ -51,7 +51,7 @@ ls *repseqs.qza >qzaRepSeqs-ls.txt
 perl autoMergeSamples_qiime2.pl qzaTables-ls.txt qzaRepSeqs-ls.txt 
 qiime feature-table summarize --i-table allSamples-mergedTable.qza --o-visualization allSamples-mergedTable.qzv --m-sample-metadata-file ../sample-metadata.tsv 
 
-### Philogenetic analysis for grouping repseqs and then performing diversity metrics
+### Phylogenetic analysis for grouping repseqs and then performing diversity metrics
 qiime alignment mafft --i-sequences allSamples-mergedRepSeqs.qza --o-alignment allSamples-alignedRepSeqs.qza
 qiime alignment mask --i-alignment allSamples-alignedRepSeqs.qza --o-masked-alignment allSamples-maskedAlignedRepSeqs.qza
 qiime phylogeny fasttree --i-alignment allSamples-maskedAlignedRepSeqs.qza --o-tree allSamples-unrooted-tree.qza
