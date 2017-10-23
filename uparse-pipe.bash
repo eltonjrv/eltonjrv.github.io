@@ -45,6 +45,7 @@ usearch -unoise3 $out/uniques.fa -zotus $out/zotus.fa
 # Create OTU table for 97% OTUs
 usearch -otutab $out/merged.fq -otus $out/otus.fa -strand plus -otutabout $out/otu_table_uparse.tsv -mapout $out/otu_map.txt
 # Create OTU table for ZOTUs	(ZOTUs are 100% identical OTUs)
+perl -pi -e 's/Zotu/Otu/g' $out/zotus.fa	#According to work-around for bug 10.1 (https://www.drive5.com/usearch/manual/bugs.html)
 usearch -otutab $out/merged.fq -zotus $out/zotus.fa -strand plus -otutabout $out/zotu_table_uparse.tsv -mapout $out/zotu_map.txt
 
 #########################################################################################################
