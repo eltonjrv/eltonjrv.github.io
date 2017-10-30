@@ -47,7 +47,7 @@ usearch -otutab $out/merged.fq -otus $out/otus.fa -strand plus -otutabout $out/o
 # Create OTU table for ZOTUs	(ZOTUs are 100% identical OTUs)
 perl -pi -e 's/Zotu/Otu/g' $out/zotus.fa	#According to work-around for bug 10.1 (https://www.drive5.com/usearch/manual/bugs.html)
 usearch -otutab $out/merged.fq -zotus $out/zotus.fa -strand plus -otutabout $out/zotu_table_uparse.tsv -mapout $out/zotu_map.txt
-
+perl -pi -e 's/Otu/Zotu/g' zotu*		#Resuming the Zotu IDs
 #########################################################################################################
 
 ### Taxonomic classification (for OTUs 97%)
