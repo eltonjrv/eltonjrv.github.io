@@ -27,6 +27,6 @@ geographical locations in California (southern CA and northern CA); and (ii)
 negative). Our customized computational workflow has been deployed as ad-hoc PERL
 scripts that merge several different available tools in order to define the operational taxonomic units
 (OTUs) for each sample and accurately classify and compare them. Preliminary results have
-already been achieved for the fleas study, and the approaches we are developing may facilitate
-future applications of microbiome research within the veterinary sciences and
+already been achieved for the fleas study. We believe that the approaches we are developing may facilitate
+future applications of microbiome research within several veterinary sciences subareas and
 fulfill a longer-term goal of adoption of metagenomics for routine use by clinicians and/or researchers.
