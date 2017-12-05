@@ -1,5 +1,5 @@
 # Microbiome Analysis applied to Vet Med
-This repository contains ad-hoc bioinformatics approaches aimed to microbial population analysis on samples of interest in Veterinary Medicine.
+This repository contains ad-hoc bioinformatics approaches aimed at microbial population analysis on samples of interest in Veterinary Medicine.
 
 Research group: Elton Vasconcelos, DVM Ph.D; Brian Oakley, Ph.D; Pedro Diniz, DVM Ph.D
 
