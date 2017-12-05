@@ -1,7 +1,7 @@
 #!/bin/bash
 # Robert Edgar pipeline presented at STAMPS 2017 course (Aug/2017)
 # Adjusted by Elton Vasconcelos
-# usage: run-uparse.bash [path-to-input-fastq-files]
+# usage: uparse-pipe.bash [path-to-input-fastq-files]
 
 if [ xusearch == x ] ; then
 	echo Must set \usearch >> /dev/stderr
