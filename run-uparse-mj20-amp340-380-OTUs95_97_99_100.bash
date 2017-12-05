@@ -1,8 +1,10 @@
 #!/bin/bash
 # Robert Edgar pipeline presented at STAMPS 2017 course (Aug/2017)
-# Adjusted by Elton Vasconcelos
-# usage: run-uparse-4plates.bash [path-to-input-fastq-files]
-# The only change on this script is the use of a Mycoplasma_haemocanis-containing RDP refDB (see line 57)
+# Adjusted by Elton Vasconcelos (Dec/04/2017)
+# usage: run-uparse*.bash [path-to-input-fastq-files]
+# On this script we have a Mycoplasma_haemocanis-containing RDP refDB (see line 57), as well as
+# we calculate 99%, 97% and 95% identity cutoffs from the ZOTUs using the "usearch -cluster_smallmem" command, as recommended
+# by Robert at https://www.drive5.com/usearch/manual/uparse_otu_radius.html
 
 if [ xusearch == x ] ; then
 	echo Must set \usearch >> /dev/stderr
