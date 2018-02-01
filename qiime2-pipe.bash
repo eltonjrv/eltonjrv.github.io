@@ -2,7 +2,7 @@
 # Programmer: Elton Vasconcelos, DVM, PhD
 # July, 2017
 ### This is a pilot pipeline using both ad-hoc PERL scripts (placed in the "bin" branch) and QIIME2 tools (https://qiime2.org).
-### Accesories files used in some commands are placed within "accFiles" branch
+### Accessories files used in some commands are placed within "accFiles" branch
 ### If you use this whole tool or part of it, please cite this github page acknowledging the author (Vasconcelos, EJ) as well as QIIME2.
 ################################################################################################################
 #### Extracting barcodes for metasamples coming from a Nextera 2-steps library prep (paired-end sequencing) ####
@@ -65,8 +65,8 @@ mkdir 03-diversity
 cd 03-diversity/
 ln -s ../02-merge/allSamples-mergedTable.qza 
 ln -s ../02-merge/allSamples-rooted-tree.qza 
-qiime diversity core-metrics --i-phylogeny allSamples-rooted-tree.qza --i-table allSamples-mergedTable.qza --p-sampling-depth 47 --output-dir core-metrics-results
-# -> 47 is the lowest number of sequences in a sample. So the diversity core metrics are going to use 47 seqs for all samples. Check that by visualizing allSamples-mergedTable.qzv on view.qiime2.org
+qiime diversity core-metrics --i-phylogeny allSamples-rooted-tree.qza --i-table allSamples-mergedTable.qza --p-sampling-depth xxx --output-dir core-metrics-results
+# -> xxx is the lowest number of sequences in a sample from the sample set. So the diversity core metrics are going to be rarefied onto xxx seqs for all samples. Check that by visualizing allSamples-mergedTable.qzv on view.qiime2.org
 
 ## Alpha-diversity
 qiime diversity alpha-group-significance --i-alpha-diversity core-metrics-results/faith_pd_vector.qza --m-metadata-file ../sample-metadata.tsv --o-visualization core-metrics-results/faith_pd-group-significance.qzv 
