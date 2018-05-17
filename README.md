@@ -24,10 +24,11 @@ diseases in humans and animals. We are currently performing two independent micr
 studies with the following samples: (i) cat fleas from two different
 geographical locations in California (southern CA and northern CA); and (ii)
 dog blood samples (either previously diagnosed for tick-borne diseases or reported as
-negative). Our customized computational workflow has been deployed as ad-hoc PERL
+negative). Our customized computational workflow has been deployed as ad-hoc BASH
 scripts that merge several different available tools in order to define the operational taxonomic units
 (OTUs) for each sample and accurately classify and compare them. Interesting results have
-already been achieved for the flea study and are disclosed in the following upcoming publication: "Assessing cat flea microbiomes in northern and southern California by 16S rRNA Next Generation Sequencing. Vasconcelos et al., 2018. Vector-Borne and Zoonotic Diseases (in press)". 
+already been achieved for the flea study and are disclosed in the following upcoming publication: 
+>**"Assessing cat flea microbiomes in northern and southern California by 16S rRNA Next Generation Sequencing.** Vasconcelos et al., 2018. *Vector-Borne and Zoonotic Diseases* (in press)". 
 We believe that the approaches we are developing may facilitate
 future applications of microbiome research within several veterinary sciences subareas and
 fulfill a longer-term goal of adoption of metagenomics for routine use by clinicians and/or researchers.
