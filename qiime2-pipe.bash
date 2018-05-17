@@ -65,7 +65,7 @@ mkdir 03-diversity
 cd 03-diversity/
 ln -s ../02-merge/allSamples-mergedTable.qza 
 ln -s ../02-merge/allSamples-rooted-tree.qza 
-qiime diversity core-metrics --i-phylogeny allSamples-rooted-tree.qza --i-table allSamples-mergedTable.qza --p-sampling-depth xxx --output-dir core-metrics-results
+qiime diversity core-metrics-phylogeny --i-phylogeny allSamples-rooted-tree.qza --i-table allSamples-mergedTable.qza --m-metadata-file ../sample-metadata.tsv --p-sampling-depth xxx --output-dir core-metrics-results
 # -> xxx is the lowest number of sequences in a sample from the sample set. So the diversity core metrics are going to be rarefied onto xxx seqs for all samples. Check that by visualizing allSamples-mergedTable.qzv on view.qiime2.org
 
 ## Alpha-diversity
