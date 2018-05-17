@@ -29,6 +29,7 @@ scripts that merge several different available tools in order to define the oper
 (OTUs) for each sample and accurately classify and compare them. Interesting results have
 already been achieved for the flea study and are disclosed in the following upcoming publication: 
 >**"Assessing cat flea microbiomes in northern and southern California by 16S rRNA Next Generation Sequencing.** Vasconcelos et al., 2018. *Vector-Borne and Zoonotic Diseases* (in press)". 
+
 We believe that the approaches we are developing may facilitate
 future applications of microbiome research within several veterinary sciences subareas and
 fulfill a longer-term goal of adoption of metagenomics for routine use by clinicians and/or researchers.
