@@ -65,7 +65,8 @@ mkdir 03-diversity
 cd 03-diversity/
 ln -s ../02-merge/allSamples-mergedTable.qza 
 ln -s ../02-merge/allSamples-rooted-tree.qza 
-qiime diversity core-metrics-phylogeny --i-phylogeny allSamples-rooted-tree.qza --i-table allSamples-mergedTable.qza --m-metadata-file ../sample-metadata.tsv --p-sampling-depth xxx --output-dir core-metrics-results
+qiime diversity core-metrics --i-phylogeny allSamples-rooted-tree.qza --i-table allSamples-mergedTable.qza --m-metadata-file ../sample-metadata.tsv --p-sampling-depth xxx --output-dir core-metrics-results
+# (qiime2-2018.4) $ qiime diversity core-metrics-phylogeny --i-phylogeny allSamples-rooted-tree.qza --i-table allSamples-mergedTable.qza --m-metadata-file ../sample-metadata.tsv --p-sampling-depth xxx --output-dir core-metrics-results
 # -> xxx is the lowest number of sequences in a sample from the sample set. So the diversity core metrics are going to be rarefied onto xxx seqs for all samples. Check that by visualizing allSamples-mergedTable.qzv on view.qiime2.org
 
 ## Alpha-diversity
@@ -93,6 +94,7 @@ ln -s ../02-merge/allSamples-mergedRepSeqs.qza
 wget -O "gg-13-8-99-515-806-nb-classifier.qza" "https://data.qiime2.org/2017.6/common/gg-13-8-99-515-806-nb-classifier.qza"
 qiime feature-classifier classify-sklearn --i-classifier gg-13-8-99-515-806-nb-classifier.qza --i-reads allSamples-mergedRepSeqs.qza --o-classification taxonomy.qza
 qiime taxa tabulate --i-data taxonomy.qza --o-visualization taxonomy.qzv
+# (qiime2-2018.4) $ qiime metadata tabulate --m-input-file taxonomy.qza --o-visualization taxonomy.qzv
 qiime taxa barplot --i-table allSamples-mergedTable.qza --i-taxonomy taxonomy.qza --m-metadata-file ../sample-metadata.tsv --o-visualization taxa-bar-plots.qzv
 cd ../
 
