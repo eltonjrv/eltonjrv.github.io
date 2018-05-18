@@ -65,7 +65,7 @@ mkdir 03-diversity
 cd 03-diversity/
 ln -s ../02-merge/allSamples-mergedTable.qza 
 ln -s ../02-merge/allSamples-rooted-tree.qza 
-qiime diversity core-metrics --i-phylogeny allSamples-rooted-tree.qza --i-table allSamples-mergedTable.qza --m-metadata-file ../sample-metadata.tsv --p-sampling-depth xxx --output-dir core-metrics-results
+qiime diversity core-metrics --i-phylogeny allSamples-rooted-tree.qza --i-table allSamples-mergedTable.qza --p-sampling-depth xxx --output-dir core-metrics-results
 # (qiime2-2018.4) $ qiime diversity core-metrics-phylogeny --i-phylogeny allSamples-rooted-tree.qza --i-table allSamples-mergedTable.qza --m-metadata-file ../sample-metadata.tsv --p-sampling-depth xxx --output-dir core-metrics-results
 # -> xxx is the lowest number of sequences in a sample from the sample set. So the diversity core metrics are going to be rarefied onto xxx seqs for all samples. Check that by visualizing allSamples-mergedTable.qzv on view.qiime2.org
 
@@ -77,6 +77,10 @@ qiime diversity alpha-group-significance --i-alpha-diversity core-metrics-result
 qiime diversity beta-group-significance --i-distance-matrix core-metrics-results/unweighted_unifrac_distance_matrix.qza --m-metadata-file ../sample-metadata.tsv --m-metadata-category Description --o-visualization core-metrics-results/unweighted_unifrac-group-significance.qzv --p-pairwise 
 qiime diversity beta-group-significance --i-distance-matrix core-metrics-results/weighted_unifrac_distance_matrix.qza --m-metadata-file ../sample-metadata.tsv --m-metadata-category Description --o-visualization core-metrics-results/weighted_unifrac-group-significance.qzv --p-pairwise 
 qiime diversity beta-group-significance --i-distance-matrix core-metrics-results/bray_curtis_distance_matrix.qza --m-metadata-file ../sample-metadata.tsv --m-metadata-category Description --o-visualization core-metrics-results/bray_curtis-group-significance.qzv --p-pairwise 
+# (qiime2-2018.4) -> --m-metadata-category was replaced by --m-metadata-column
+# qiime diversity beta-group-significance --i-distance-matrix core-metrics-results/unweighted_unifrac_distance_matrix.qza --m-metadata-file ../sample-metadata.tsv --m-metadata-column Description --o-visualization core-metrics-results/unweighted_unifrac-group-significance.qzv --p-pairwise 
+# qiime diversity beta-group-significance --i-distance-matrix core-metrics-results/weighted_unifrac_distance_matrix.qza --m-metadata-file ../sample-metadata.tsv --m-metadata-column Description --o-visualization core-metrics-results/weighted_unifrac-group-significance.qzv --p-pairwise 
+# qiime diversity beta-group-significance --i-distance-matrix core-metrics-results/bray_curtis_distance_matrix.qza --m-metadata-file ../sample-metadata.tsv --m-metadata-column Description --o-visualization core-metrics-r
 
 ## PCoA Emperor plots for the three most used bDiv metrics
 qiime emperor plot --i-pcoa core-metrics-results/unweighted_unifrac_pcoa_results.qza --m-metadata-file ../sample-metadata.tsv  --o-visualization core-metrics-results/unweighted_unifrac_pcoa_emperor.qzv 
