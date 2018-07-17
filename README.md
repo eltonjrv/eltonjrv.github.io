@@ -27,7 +27,7 @@ dog blood samples (either previously diagnosed for tick-borne diseases or report
 negative). Our customized computational workflow has been deployed as ad-hoc BASH
 scripts that merge several different available tools in order to define the operational taxonomic units
 (OTUs) for each sample and accurately classify and compare them. Interesting results have
-already been achieved for the flea study and are disclosed in the following upcoming publication: 
+already been achieved for the flea study and are disclosed in the following publication: 
 >**Assessing cat flea microbiomes in northern and southern California by 16S rRNA Next Generation Sequencing.** Vasconcelos et al., 2018. *Vector-Borne and Zoonotic Diseases* (https://www.ncbi.nlm.nih.gov/pubmed/29893631). 
 
 We believe that the approaches we are developing may facilitate
