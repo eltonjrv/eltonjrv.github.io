@@ -1,6 +1,6 @@
 #!/bin/bash
 # Robert Edgar pipeline presented at STAMPS 2017 course (Aug/2017)
-# Adjusted by Elton Vasconcelos in order to f own purposes (Apr/2018)
+# Adjusted by Elton Vasconcelos for own purposes (Jan/2018)
 # Script that takes paired-end Illumina fastq files as input and performs sequencing quality filtering, ZOTUs/ESVs assembly, taxonomic classification, and some diversity analyses.
 # Usage: run-uparse.bash [path-to-input-fastq-files]
 ###########################################################################################################################
