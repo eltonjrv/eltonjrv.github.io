@@ -2,7 +2,7 @@
 # Robert Edgar pipeline presented at STAMPS 2017 course (Aug/2017)
 # Adjusted by Elton Vasconcelos for own purposes (Jan/2018)
 # Script that takes paired-end Illumina fastq files as input and performs sequencing quality filtering, ZOTUs/ESVs assembly, taxonomic classification, and some diversity analyses.
-# Usage: run-uparse.bash [path-to-input-fastq-files]
+# Usage: bash run-uparse-mj20-amp340-380-ZOTUs.bash [path-to-input-fastq-files]
 ###########################################################################################################################
 # NOTE-1: One may tune parameters on each command below according to his/her needs.
 # NOTE-2: On the first uparse command "usearch -fastq_mergepairs" (line 36), we have set a minimum of 20 bp for merging R1 and R2 mates (accepting a maximum difference of 5 bases within the overlapped region, as set by default), as well as a minimum and maximum merged sequence length of 340 and 380, respectively. This is because our V4-V5 target amplicon region is ~ 400 bp long and, after primers are trimmed, we get a ~ 360 bp-long full amplicon to be joined, allowing an arbitrary  +/- 20 bp range. 
