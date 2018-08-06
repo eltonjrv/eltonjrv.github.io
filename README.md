@@ -1,1 +1,1 @@
-# Ad-hoc scripts that give support to our under development QIIME-based pipeline
+# Ad-hoc scripts that give support to our developed pipelines
