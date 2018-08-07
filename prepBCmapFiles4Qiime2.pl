@@ -2,7 +2,6 @@
 # Programmer: Elton Vasconcelos (12/Jul/2017)
 # Usage: perl prepBCmapFiles4Qiime2.pl [iNext-barcodes.tab] [samples-map.tab]
 # Script first run within the following dir:
-# /mnt/win10/Users/evasconcelos/GoogleDrive/PD-WesternU-2017/pre-FleaData/QIIME2-run/01-demux
 
 my(@array, @array2, %hash, $samp, @iF, @iR, @samples, $iFid, $iFbc, $iRid, $iRbc, $outfile);
 ######## Working on samples-map.tab ###################
