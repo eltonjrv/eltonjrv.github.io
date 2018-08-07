@@ -1,6 +1,7 @@
 #!/bin/bash
 # Robert Edgar pipeline presented at STAMPS 2017 course (Aug/2017)
 # Adjusted by Elton Vasconcelos for own purposes (Jan/2018)
+# Please refer to https://www.drive5.com/usearch/download.html in order to download USEARCH tools
 # Script that takes paired-end Illumina fastq files as input and performs sequencing quality filtering, ZOTUs/ESVs assembly, taxonomic classification, and some diversity analyses.
 # Usage: bash run-uparse-mj20-amp340-380-ZOTUs.bash [path-to-input-fastq-files]
 ###########################################################################################################################
