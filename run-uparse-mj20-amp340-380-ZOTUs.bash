@@ -14,10 +14,10 @@ if [ xusearch == x ] ; then
 	exit 1
 fi
 
-version=`usearch -version | sed "-es/usearch //" | sed "-es/v10.*/v10/"`
+version=`usearch -version | sed "-es/usearch //" | sed "-es/v11.*/v11/"`
 
-if [ x$version != xv10 ] ; then
-	echo "usearch version too old, need v10" >> /dev/stderr
+if [ x$version != xv11 ] ; then
+	echo "usearch version too old, need v11" >> /dev/stderr
 	exit 1
 fi
 
