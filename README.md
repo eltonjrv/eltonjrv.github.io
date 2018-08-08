@@ -211,7 +211,7 @@ $ grep -P 'Ehrlichia|Anaplasma|Bartonella|Mycoplasma|Rickettsia' zotus_table_upa
 >NOTE: Replace the name of above genera by the ones of your interest (keep both ' and | signs).
 
 
-# 4. Phylogenetic Diversity Investigation on Taxa of Interest (ToI)
+# 4. Phylogenetic Diversity Investigation on ToIs
 ### 4.1. Preparing files for phylogenetic analyses of your ToI(s)
 4.1.1. Within the uparse-generated "outputs/" directory, create a new directory to work on tree-prep files, and go within it:
 ```
