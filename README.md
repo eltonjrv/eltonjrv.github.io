@@ -201,7 +201,7 @@ $ grep '_neg_' zotus_table_uparse-customized.tsv2 | cut -f 2 | sort -u >ZotusOnN
 
 3.2.2. Generating a new zotu table without any zotu present in the NTCs:
 ```
-$  perl -e 'open(FILE, "zotus_table_uparse-customized.tsv2"); open(FILE2, "ZotusOnNTC.txt"); while(<FILE2>){chomp($_); $hash{$_} = 1;} while(<FILE>){chomp($_); @array = split(/\t/, $_); if($hash{$array[1]} eq ""){print("$_\n");}}' >zotus_table_uparse-wTaxa-customized-woNTCzotus.tsv
+$  perl -e 'open(FILE, "zotus_table_uparse-customized.tsv2"); open(FILE2, "ZotusOnNTC.txt"); while(<FILE2>){chomp($_); $hash{$_} = 1;} while(<FILE>){chomp($_); @array = split(/\t/, $_); if($hash{$array[1]} eq ""){print("$_\n");}}' >zotus_table_uparse-customized-woNTCzotus.tsv
 ```
 ### 3.3.  Keeping taxa of interest only (ToIs)
 3.3.1. Catching your taxa of interest within the zotu table:
