@@ -174,9 +174,9 @@ $ cd outputs/
 ```
 #### A metadata file will also be needed (which I'll call "samples-metadata.tsv" in this tutorial). Please have your metadata file prepared as this [example](https://github.com/eltonjrv/microbiome.westernu/blob/accFiles/samples-metadata.tsv) and place it within the current directory (outputs).
 >NOTES about the metadata table:
-I. Columns 1 and 4 are mandatory.
-II. Column 4 must contain any textual string that best describes your samples.
-III. There must not be any colon ":" nor blank spaces within your sample descriptions.
+>I) Columns 1 and 4 are mandatory.
+>II) Column 4 must contain any textual string that best describes your samples.
+>III) There must not be any colon ":" nor blank spaces within your sample descriptions.
 
 3b) There will already be two important uparse-generated files within the "outputs" dir ("zotus_table_uparse.tsv" and "zotus.sintax") . Once you have those two files plus your "samples-metadata.tsv" ready, run the following command:
 ```
