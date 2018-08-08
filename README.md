@@ -262,4 +262,4 @@ Keeping the ToI-ZOTUs stretch only in the MSA, that is, the 16S rRNA target-ampl
 $ perl cutMSA.pl Ehr-4tree_aln.fa Zotu9 TGTGCCAG 360 for >Ehr-4tree_alnCut.fa 
 $ perl cutMSA.pl Bart-4tree_aln.fa Zotu7 TATTGGA 360 for >Bart-4tree_alnCut.fa 
 ```
->NOTE: "cutMSA.pl" PERL script may be obtained [here](https://github.com/eltonjrv/bioinfo.scripts/blob/master/cutMSA.pl). Please read "cutMSA.pl" initial commented lines for instructions on how to run it. Those final "\*\_alnCut.fa" outputs must be used as inputs on MEGA7, so the user can perform his/her most convenient phylogenetic inference methods.
+>NOTE: "cutMSA.pl" PERL script may be obtained [here](https://github.com/eltonjrv/bioinfo.scripts/blob/master/cutMSA.pl). Please read "cutMSA.pl" initial commented lines for instructions on how to run it. Those final "\*\_alnCut.fa" outputs must be used as inputs on [MEGA](https://www.megasoftware.net/), so the user can perform his/her most convenient phylogenetic inference methods.
