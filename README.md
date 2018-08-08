@@ -12,10 +12,6 @@ For more details on this approach, please refer to [Faircloth & Glenn, 2012 - PL
 ##### If you have not adopted this approach and have all your fastq files already demultiplexed, please go straight to topic 2. 
 ## Debarcoding with QIIME1 tools
 ##### Please refer to http://qiime.org/install/install.html for instructions on how to install QIIME1
-Activating qiime1 environment:
-```
-$ source activate qiime1
-```
 Creating a project parent directory for the whole analysis:
 ```
 $ mkdir projectX
@@ -31,6 +27,10 @@ $ mkdir raw_data
 Entering this directory:
 ```
 $ cd raw_data/
+```
+Activating qiime1 environment:
+```
+$ source activate qiime1
 ```
 Running the following command in order to extract barcodes:
 ```
@@ -52,15 +52,19 @@ $ source deactivate
 ```
 ## Demultiplexing with QIIME2 tools and an ad-hoc PERL script 
 ##### Please refer to  https://docs.qiime2.org/2018.6/install for instructions on how to install QIIME2
-Activating qiime2 environment:
+Creating a directory where there will be all your raw fastq files:
 ```
-$ source activate qiime2-2018.6
+$ mkdir demux
+```
+Entering this directory:
+```
+$ cd demux/
 ```
 Preparing map files that will associate specific barcodes' combination to their respective samples:
 ```
 $ perl prepBCmapFiles4Qiime2.pl iNext-barcodes.tab samples-map.tab 
 ```
->NOTES:
+>NOTES: One must have the script and both input files placed into the current directory.
 1) "prepBCmapFiles4Qiime2.pl" PERL script can be obtained [here](https://github.com/eltonjrv/microbiome.westernu/blob/bin/prepBCmapFiles4Qiime2.pl)
 2) See/Download [iNext-barcodes.tab](https://github.com/eltonjrv/microbiome.westernu/blob/accFiles/iNext-barcodes.tab) and [samples-map.tab](https://github.com/eltonjrv/microbiome.westernu/blob/accFiles/samples-map.tab) as guiding examples, if you have adopted/encountered a demultiplexing situation like ours.
 
@@ -72,21 +76,29 @@ Moving barcodes_\*tab files to that new directory:
 ```
 $ mv barcodes_*tab BCmapFiles/
 ```
+Activating qiime2 environment:
+```
+$ source activate qiime2-2018.6
+```
 Importing qiime1-debarcoded fastq files as qiime2 .qza format:
 ```
 $ for i in `ls -d raw_data/*-barcodes`; do qiime tools import --type EMPPairedEndSequences --input-path $i --output-path `echo $i | sed 's/.*\///g' | sed 's/\-barcodes/\-input4demux/g'`; done
 ```
-Running the actual demultiplexing task with "qiime demux" from qiime2:
+Running the actual demultiplexing task with "qiime demux" command:
 ```
 $ for i in `ls BCmapFiles/`; do Mbase=`echo $i | sed 's/barcodes_[0-9]*\-//g' | sed 's/\.tab//g'`; qiime demux emp-paired --m-barcodes-file BCmapFiles/$i --m-barcodes-category BarcodeSequence --i-seqs `echo $Mbase`-input4demux.qza --o-per-sample-sequences `echo $i | sed 's/barcodes_//g' | sed 's/\.tab//g'`-demuxOUT.qza; done
 ```
-Summarizing the demultiplexed qza files as qzv ones in order to be visualized at https://view.qiime2.org/:
+Summarizing the demultiplexed qza files as qzv ones in order to be visualized at https://view.qiime2.org/ (Important for sequenced reads quality control assessment/visualization on each sample):
 ```
 $ for i in `ls *OUT.qza`; do qiime demux summarize --i-data $i --o-visualization `echo $i | sed 's/qza$/qzv/g'`; done
 ```
 Deactivating qiime2 environment:
 ```
 $ source deactivate
+```
+Moving back to the parent projectX/ dir:
+```
+cd ../
 ```
 
 # 2. Microbiome Sequencing Analyses
