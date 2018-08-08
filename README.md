@@ -24,7 +24,7 @@ b) iNEXT barcodes (For_A-H - Rev_1-12) on the 2nd round.
 For more details on this approach, please refer to [Faircloth & Glenn, 2012 - PLoS One](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0042543).
 >NOTE: If you have not adopted this approach and/or have all your fastq files already demultiplexed, please go straight to topic 2. 
 
-## 1.1. Debarcoding with QIIME1 tools
+### 1.1. Debarcoding with QIIME1 tools
 ##### Please refer to http://qiime.org/install/install.html for instructions on how to install QIIME1
 1.1.1.  Creating a project parent directory for the whole analysis:
 ```
@@ -61,7 +61,7 @@ $ cd ../
 ```
 $ source deactivate
 ```
-## 1.2. Demultiplexing with QIIME2 tools and an *ad hoc* PERL script 
+### 1.2. Demultiplexing with QIIME2 tools and an *ad hoc* PERL script 
 ##### Please refer to  https://docs.qiime2.org/2018.6/install for instructions on how to install QIIME2
 1.2.1. Creating a directory for the demultiplexing job ad entering it:
 ```
@@ -129,7 +129,7 @@ $ cd inputs/
 $ ln -s ../../demux/demux-unzipped/*/data/*gz .
 $ cd ../
 ```
-## 2.1. Trimming primers with Trimmomatic (this must be done prior running UPARSE)
+### 2.1. Trimming primers with Trimmomatic (this must be done prior running UPARSE)
 ##### Please refer to http://www.usadellab.org/cms/?page=trimmomatic for Trimmomatic download and instructions
 2.1.1. Running trimmomatic
 ```
@@ -151,7 +151,7 @@ $ mkdir inputs-woPrimers
 ```
 $ mv *fq inputs-woPrimers/
 ```
-## 2.2. Running UPARSE on sequenced and trimmed amplicons
+### 2.2. Running UPARSE on sequenced and trimmed amplicons
 ##### Please refer to https://www.drive5.com/usearch/download.html in order to download USEARCH tools
 2.2.1. Running the actual microbiome analyzer tool:
 ```
@@ -172,7 +172,7 @@ III) An "outputs" directory will be created and all uparse-generated files will 
 ```
 $ cd outputs/
 ```
-#### A metadata file will also be needed (which I'll call "samples-metadata.tsv" in this tutorial). Please have your metadata file prepared as this [example](https://github.com/eltonjrv/microbiome.westernu/blob/accFiles/samples-metadata.tsv) and place it within the current directory (outputs).
+#### ATTENTION: A metadata file will also be needed (which I'll call "samples-metadata.tsv" in this tutorial). Please have your metadata file prepared as this [example](https://github.com/eltonjrv/microbiome.westernu/blob/accFiles/samples-metadata.tsv) and place it within the current directory (outputs).
 >NOTES about the metadata table:
 I) Columns 1 and 4 are mandatory.
 II) Column 4 must contain any textual string that best describes your samples.
