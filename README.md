@@ -118,3 +118,44 @@ $ bash run-uparse-mj20-amp340-380-ZOTUs.bash inputs-woPrimers/ >run-uparse.log
 2.2) On the first uparse command "usearch -fastq_mergepairs" (line 36), we have set a minimum of 20 bp for merging R1 and R2 mates (accepting a maximum difference of 5 bases within the overlapped region, as set by default), as well as a minimum and maximum merged sequence length of 340 and 380, respectively. This is because our V4-V5 target amplicon region is ~ 400 bp long and, after primers are trimmed, we get a ~ 360 bp-long full amplicon to be joined, allowing an arbitrary  +/- 20 bp range.   
 2.3) This script uses a customized RDP refDB, which we added a Mycoplasma_haemocanis 16S rRNA sequence from SILVA-DB (ID: H0HHaemo). In order to download it, please go [here](https://github.com/eltonjrv/microbiome.westernu/tree/refDB) and click on the "Clone or download" green button, then "Download ZIP". After unzipping the downloaded folder, uncompress the "rdp_16s-wMhaemocanis.fa.gz" file with "gunzip" command, and then copy it to the directory where you will run this script (e.g. projectX/). Line 53 from the script will format that file in order to be used as a refDB (\*.udb) for taxonomic classification purposes. If you want to use your own customized refDB, please edit script's line 53.
 3) An "outputs" directory will be created and all uparse-generated files will be placed within it.
+
+# 3. ZOTU/ESV Table Customization for Diagnostics Purposes
+##### This topic is aimed at creating a customized ZOTU table which will make data visual inspection easier for clinicians
+Move to the uparse-generated "outputs" directory:
+```
+$ cd outputs/
+```
+#### A metadata file will also be needed (which I'll call "samples-metadata.tsv" in this tutorial). Please have your metadata file prepared as this [example](https://github.com/eltonjrv/microbiome.westernu/blob/accFiles/samples-metadata.tsv).
+>NOTES about the metadata table:
+1) Columns 1 and 4 are mandatory.
+2) Column 4 must contain any textual string that best describes your samples.
+3) There must not be any colon ":" within your sample descriptions.
+
+Once you have the three files ready, run the following command:
+```
+$ bash customize-OTUtable.bash zotus_table_uparse.tsv zotus.sintax samples-metadata.tsv
+```
+>NOTES:
+1) "customize-OTUtable.bash script" may be obtained [here](https://github.com/eltonjrv/microbiome.westernu/blob/bin/customize-OTUtable.bash).
+2) There are two other embedded scripts that must also be placed within the current directory where you'll run customize-OTUtable.bash: [customize-OTUtable.R](https://github.com/eltonjrv/microbiome.westernu/blob/bin/customize-OTUtable.R) and [sampleID-to-sampleDescription.pl](https://github.com/eltonjrv/microbiome.westernu/blob/bin/sampleID-to-sampleDescription.pl).
+3) A "zotus_table_uparse-customized.tsv" main output file is created with the above command.
+
+## Improving customized ZOTU table
+In case one wants to keep only the last taxonomic level assigned to each zotu, instead of seeing the whole taxonomic classification, run the following:
+```
+$ sed 's/\td\:.*s\:/\ts\:/g' zotus_table_uparse-customized.tsv |  sed 's/\td\:.*g\:/\tg\:/g' | sed 's/\td\:.*f\:/\tf\:/g' | sed 's/\td\:.*o\:/\to\:/g' | sed 's/\td\:.*c\:/\tc\:/g' | sed 's/\td\:.*p\:/\tp\:/g' >zotus_table_uparse-customized.tsv2
+```
+##### Removing zotus that are present in Neg_Ctrl (NTC, water-only) from all samples.
+```
+$ grep '_neg_' zotus_table_uparse-customized.tsv2 | cut -f 2 | sort -u >ZotusOnNTC.txt
+```
+>NOTE: On the command above, replace '_neg_' by any other tag that characterizes the negative control in your sample Descriptions (e.g. NTC, water, blank, etc ...)
+```
+$  perl -e 'open(FILE, "zotus_table_uparse-customized.tsv2"); open(FILE2, "ZotusOnNTC.txt"); while(<FILE2>){chomp($_); $hash{$_} = 1;} while(<FILE>){chomp($_); @array = split(/\t/, $_); if($hash{$array[1]} eq ""){print("$_\n");}}' >zotus_table_uparse-wTaxa-customized-woNTCzotus.tsv
+```
+###### Keeping taxa of interest only (ToIs)
+```
+$ grep -P 'Ehrlichia|Anaplasma|Bartonella|Mycoplasma|Rickettsia' zotus_table_uparse-customized-woNTCzotus.tsv >zotus_table_uparse-wTaxa-customized-woNTCzotus-ToIonly.tsv
+```
+>NOTE: Replace the name of above genera by the ones of your interest (keep ' and | signs).
+
