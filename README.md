@@ -50,9 +50,9 @@ Deactivating qiime1 environment:
 ```
 $ source deactivate
 ```
-## Demultiplexing with QIIME2 tools and an ad-hoc PERL script 
+## Demultiplexing with QIIME2 tools and an *ad hoc* PERL script 
 ##### Please refer to  https://docs.qiime2.org/2018.6/install for instructions on how to install QIIME2
-Creating a directory where there will be all your raw fastq files:
+Creating a directory for the demultiplexing job:
 ```
 $ mkdir demux
 ```
@@ -64,7 +64,7 @@ Preparing map files that will associate specific barcodes' combination to their 
 ```
 $ perl prepBCmapFiles4Qiime2.pl iNext-barcodes.tab samples-map.tab 
 ```
->NOTES: One must have the script and both input files placed into the current directory.
+>NOTES: One must have both the *ad hoc* script (prepBCmapFiles4Qiime2.pl) and two the input files (iNext-barcodes.tab and samples-map.tab) placed into the current directory.
 1) "prepBCmapFiles4Qiime2.pl" PERL script can be obtained [here](https://github.com/eltonjrv/microbiome.westernu/blob/bin/prepBCmapFiles4Qiime2.pl)
 2) See/Download [iNext-barcodes.tab](https://github.com/eltonjrv/microbiome.westernu/blob/accFiles/iNext-barcodes.tab) and [samples-map.tab](https://github.com/eltonjrv/microbiome.westernu/blob/accFiles/samples-map.tab) as guiding examples, if you have adopted/encountered a demultiplexing situation like ours.
 
@@ -96,9 +96,9 @@ Deactivating qiime2 environment:
 ```
 $ source deactivate
 ```
-Moving back to the parent projectX/ dir:
+Going back to the parent projectX/ dir:
 ```
-cd ../
+$ cd ../
 ```
 
 # 2. Microbiome Sequencing Analyses
