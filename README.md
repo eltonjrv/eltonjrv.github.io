@@ -92,7 +92,7 @@ $ for i in `ls inputs/*R1*fastq.gz`; do R1=`echo $i | sed 's/inputs\///g' | sed 
 ```
 > NOTES:
 1) Please pay attention that you need to type your trimmmomatic installation full PATH after the "java -jar" command above.
-2) Edit the "HEADCROP:20" parameter according to your primers' average length. In this example, primers length are ~ 20 bp.
+2) Edit the "HEADCROP:20" parameter according to your primers' average length. In this example, primers' length is ~ 20 bp.
 
 Removing unpaired reads after trimming:
 ```
