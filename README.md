@@ -12,7 +12,7 @@
   - [Bioperl](https://bioperl.org/)
   - [R](https://www.r-project.org/)
  
- \* Only if you are running the debarcoding and demultiplexing steps on topic 1 below.
+ \* Only if you are running debarcoding and demultiplexing steps (topic 1 below).
 
 #############################################################################
 
