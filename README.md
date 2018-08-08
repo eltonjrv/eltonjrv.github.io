@@ -174,9 +174,9 @@ $ cd outputs/
 ```
 #### A metadata file will also be needed (which I'll call "samples-metadata.tsv" in this tutorial). Please have your metadata file prepared as this [example](https://github.com/eltonjrv/microbiome.westernu/blob/accFiles/samples-metadata.tsv) and place it within the current directory (outputs).
 >NOTES about the metadata table:
-I) Columns 1 and 4 are mandatory.
-II) Column 4 must contain any textual string that best describes your samples.
-III) There must not be any colon ":" nor blank spaces within your sample descriptions.
+I. Columns 1 and 4 are mandatory.
+II. Column 4 must contain any textual string that best describes your samples.
+III. There must not be any colon ":" nor blank spaces within your sample descriptions.
 
 3b) There will already be two important uparse-generated files within the "outputs" dir ("zotus_table_uparse.tsv" and "zotus.sintax") . Once you have those two files plus your "samples-metadata.tsv" ready, run the following command:
 ```
@@ -198,6 +198,7 @@ $ sed 's/\td\:.*s\:/\ts\:/g' zotus_table_uparse-customized.tsv |  sed 's/\td\:.*
 $ grep '_neg_' zotus_table_uparse-customized.tsv2 | cut -f 2 | sort -u >ZotusOnNTC.txt
 ```
 >NOTE: On the command above, replace '\_neg\_' by any other tag that characterizes the negative control in your sample descriptions (e.g. NTC, water, blank, etc ...)
+
 3.2.2. Generating a new zotu table without any zotu present in the NTCs:
 ```
 $  perl -e 'open(FILE, "zotus_table_uparse-customized.tsv2"); open(FILE2, "ZotusOnNTC.txt"); while(<FILE2>){chomp($_); $hash{$_} = 1;} while(<FILE>){chomp($_); @array = split(/\t/, $_); if($hash{$array[1]} eq ""){print("$_\n");}}' >zotus_table_uparse-wTaxa-customized-woNTCzotus.tsv
