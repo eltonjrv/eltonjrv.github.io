@@ -160,7 +160,7 @@ $ cd outputs/
 >NOTES about the metadata table:
 1) Columns 1 and 4 are mandatory.
 2) Column 4 must contain any textual string that best describes your samples.
-3) There must not be any colon ":" within your sample descriptions.
+3) There must not be any colon ":" nor blank spaces within your sample descriptions.
 
 Once you have the three files ready, run the following command:
 ```
