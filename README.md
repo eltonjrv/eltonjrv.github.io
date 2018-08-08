@@ -93,7 +93,7 @@ $ source deactivate
 ## Trimming primers with Trimmomatic
 ##### Please refer to http://www.usadellab.org/cms/?page=trimmomatic for Trimmomatic download and instructions
 ```
-$ for i in `ls inputs/*R1*fastq.gz`; do R1=`echo $i | sed 's/inputs\///g' | sed 's/\.fastq\.gz$//g'`; R2=`echo $i | sed 's/inputs\///g' | sed 's/\.fastq\.gz$//g' | sed 's/_R1_/_R2_/g'`; java -jar /path/to/Trimmomatic-0.33/trimmomatic-0.33.jar PE -phred33 $i `echo $i | sed 's/_R1_/_R2_/g'` $R1.fq $R1.unpaired.fq $R2.fq $R2.unpaired.fq HEADCROP:20; done
+$ for i in `ls inputs/*R1*fastq.gz`; do R1=`echo $i | sed 's/inputs\///g' | sed 's/\.fastq\.gz$//g'`; R2=`echo $i | sed 's/inputs\///g' | sed 's/\.fastq\.gz$//g' | sed 's/_R1_/_R2_/g'`; java -jar /path/to/your/Trimmomatic-x.xx/trimmomatic-x.xx.jar PE -phred33 $i `echo $i | sed 's/_R1_/_R2_/g'` $R1.fq $R1.unpaired.fq $R2.fq $R2.unpaired.fq HEADCROP:20; done
 ```
 > NOTES:
 1) Please pay attention that you need to type your trimmmomatic installation full PATH after the "java -jar" command above.
@@ -216,7 +216,7 @@ Running a global Multiple Sequence Alignment (MSA) with muscle:
 $ muscle -in Ehr-4tree.fasta  -out Ehr-4tree_aln.fa
 $ muscle -in Bart-4tree.fasta -out Bart-4tree_aln.fa
 ```
->NOTE: Refer to https://www.drive5.com/muscle/downloads.htm for instructions on how to download muscle.
+>NOTE: Refer to https://www.drive5.com/muscle/downloads.htm for instructions on how to download and install muscle.
 
 Keeping the ToI-ZOTUs stretch only in the MSA, that is, the 16S rRNA target-amplicon region:
 ```
