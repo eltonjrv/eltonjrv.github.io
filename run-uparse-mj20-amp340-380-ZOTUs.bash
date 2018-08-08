@@ -6,8 +6,8 @@
 # Usage: bash run-uparse-mj20-amp340-380-ZOTUs.bash [path-to-input-fastq-files]
 ###########################################################################################################################
 # NOTE-1: One may tune parameters on each command below according to his/her needs.
-# NOTE-2: On the first uparse command "usearch -fastq_mergepairs" (line 36), we have set a minimum of 20 bp for merging R1 and R2 mates (accepting a maximum difference of 5 bases within the overlapped region, as set by default), as well as a minimum and maximum merged sequence length of 340 and 380, respectively. This is because our V4-V5 target amplicon region is ~ 400 bp long and, after primers are trimmed, we get a ~ 360 bp-long full amplicon to be joined, allowing an arbitrary  +/- 20 bp range. 
-# NOTE-3: This script uses a customized RDP refDB, which we added a Mycoplasma_haemocanis 16S rRNA sequence from SILVA-DB (ID: H0HHaemo). In order to download it, please go to https://github.com/eltonjrv/microbiome.westernu/tree/refDB and click on the "Clone or download" green button, then "Download ZIP". After unzipping the downloaded folder, uncompress the "rdp_16s_v16_sp.fa.gz" file with "gunzip" command, and then copy it to the directory where you will run this script. Line 53 below will format that file in order to be used as a refDB (*.udb) for taxonomic classification purpose. If you want to use your own customized refDB, please edit line 53.
+# NOTE-2: On the first uparse command "usearch -fastq_mergepairs" (line 35), we have set a minimum of 20 bp for merging R1 and R2 mates (accepting a maximum difference of 5 bases within the overlapped region, as set by default), as well as a minimum and maximum merged sequence length of 340 and 380, respectively. This is because our V4-V5 target amplicon region is ~ 400 bp long and, after primers are trimmed, we get a ~ 360 bp-long full amplicon to be joined, allowing an arbitrary  +/- 20 bp range. 
+# NOTE-3: This script uses a customized RDP refDB, which we added a Mycoplasma_haemocanis 16S rRNA sequence from SILVA-DB (ID: H0HHaemo). In order to download it, please go to https://github.com/eltonjrv/microbiome.westernu/tree/refDB and click on the "Clone or download" green button, then "Download ZIP". After unzipping the downloaded folder, uncompress the "rdp_16s-wMhaemocanis.fa.gz" file with "gunzip" command, and then copy it to the directory where you will run this script. Line 52 below will format that file in order to be used as a refDB (*.udb) for taxonomic classification purpose. If you want to use your own customized refDB, please edit line 52.
 
 if [ xusearch == x ] ; then
 	echo Must set \usearch >> /dev/stderr
@@ -30,8 +30,6 @@ out=outputs
 
 rm -rf $out
 mkdir -p $out
-
-#cd $out
 
 # Assemble paired reads, put sample names into read labels
 usearch -fastq_mergepairs $1/*_R1_*.fq -fastq_minovlen 20 -fastq_minmergelen 340 -fastq_maxmergelen 380 -relabel @ -fastqout $out/merged.fq
