@@ -20,12 +20,9 @@ Entering this directory:
 ```
 $ cd projectX/
 ```
-Creating a directory where there will be all your raw fastq files:
+Creating a directory where there will be all your raw fastq files, and going within it:
 ```
 $ mkdir raw_data
-```
-Entering this directory:
-```
 $ cd raw_data/
 ```
 Activating qiime1 environment:
@@ -52,12 +49,9 @@ $ source deactivate
 ```
 ## Demultiplexing with QIIME2 tools and an *ad hoc* PERL script 
 ##### Please refer to  https://docs.qiime2.org/2018.6/install for instructions on how to install QIIME2
-Creating a directory for the demultiplexing job:
+Creating a directory for the demultiplexing job ad entering it:
 ```
 $ mkdir demux
-```
-Entering this directory:
-```
 $ cd demux/
 ```
 Preparing map files that will associate specific barcodes' combination to their respective samples:
@@ -82,7 +76,7 @@ $ source activate qiime2-2018.6
 ```
 Importing qiime1-debarcoded fastq files as qiime2 .qza format:
 ```
-$ for i in `ls -d raw_data/*-barcodes`; do qiime tools import --type EMPPairedEndSequences --input-path $i --output-path `echo $i | sed 's/.*\///g' | sed 's/\-barcodes/\-input4demux/g'`; done
+$ for i in `ls -d ../raw_data/*-barcodes`; do qiime tools import --type EMPPairedEndSequences --input-path $i --output-path `echo $i | sed 's/.*\///g' | sed 's/\-barcodes/\-input4demux/g'`; done
 ```
 Running the actual demultiplexing task with "qiime demux" command:
 ```
@@ -96,13 +90,32 @@ Deactivating qiime2 environment:
 ```
 $ source deactivate
 ```
+Creating a directory to store and uncompress demultiplexed qza files, in order to have fastq files for topic 2 below:
+```
+$ mkdir demux-unzipped
+$ cd demux-unzipped/
+$ ln -s ../*demuxOUT.qza .
+$ ls | xargs -i unzip {}
+```
 Going back to the parent projectX/ dir:
 ```
-$ cd ../
+$ cd ../../
 ```
 
 # 2. Microbiome Sequencing Analyses
-## Trimming primers with Trimmomatic
+Since UPARSE will be the main microbiome analyzer used here, let's first create a "uparse-run" directory and then go within it:
+```
+$ mkdir uparse-run
+$ cd uparse-run/
+```
+Creating an "inputs" directory and placing symbolic links of demultiplexed fastq files that will be used by UPARSE:
+```
+$ mkdir inputs
+$ cd inputs/
+$ ln -s ../../demux/demux-unzipped/*/data/*gz .
+$ cd ../
+```
+## Trimming primers with Trimmomatic (this must be done prior running UPARSE)
 ##### Please refer to http://www.usadellab.org/cms/?page=trimmomatic for Trimmomatic download and instructions
 ```
 $ for i in `ls inputs/*R1*fastq.gz`; do R1=`echo $i | sed 's/inputs\///g' | sed 's/\.fastq\.gz$//g'`; R2=`echo $i | sed 's/inputs\///g' | sed 's/\.fastq\.gz$//g' | sed 's/_R1_/_R2_/g'`; java -jar /path/to/your/Trimmomatic-x.xx/trimmomatic-x.xx.jar PE -phred33 $i `echo $i | sed 's/_R1_/_R2_/g'` $R1.fq $R1.unpaired.fq $R2.fq $R2.unpaired.fq HEADCROP:20; done
