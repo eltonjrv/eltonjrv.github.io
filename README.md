@@ -22,7 +22,7 @@ In the example below, we are referring to a two-round PCR method on which two pa
 a) Illumina overhang adapter sequence (For_i5 and Rev_i7) on the 1st round of amplifications, and 
 b) iNEXT barcodes (For_A-H - Rev_1-12) on the 2nd round.
 For more details on this approach, please refer to [Faircloth & Glenn, 2012 - PLoS One](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0042543).
->NOTE: If you have not adopted this approach and have all your fastq files already demultiplexed, please go straight to topic 2. 
+>NOTE: If you have not adopted this approach and/or have all your fastq files already demultiplexed, please go straight to topic 2. 
 
 ## 1.1 Debarcoding with QIIME1 tools
 ##### Please refer to http://qiime.org/install/install.html for instructions on how to install QIIME1
@@ -181,7 +181,7 @@ Once you have the three files ready, run the following command:
 $ bash customize-OTUtable.bash zotus_table_uparse.tsv zotus.sintax samples-metadata.tsv
 ```
 >NOTES:
-1) "customize-OTUtable.bash script" may be obtained [here](https://github.com/eltonjrv/microbiome.westernu/blob/bin/customize-OTUtable.bash).
+1) "customize-OTUtable.bash" script may be obtained [here](https://github.com/eltonjrv/microbiome.westernu/blob/bin/customize-OTUtable.bash).
 2) There are two other embedded scripts that must also be placed within the current directory where you'll run customize-OTUtable.bash: [customize-OTUtable.R](https://github.com/eltonjrv/microbiome.westernu/blob/bin/customize-OTUtable.R) and [sampleID-to-sampleDescription.pl](https://github.com/eltonjrv/microbiome.westernu/blob/bin/sampleID-to-sampleDescription.pl).
 3) A "zotus_table_uparse-customized.tsv" main output file is created with the above command.
 
