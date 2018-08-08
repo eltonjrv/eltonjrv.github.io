@@ -84,11 +84,16 @@ Deactivating qiime2 environment:
 $ source deactivate
 ```
 
-#2. Microbiome Sequencing Analyses
-## Trimming primers
+# 2. Microbiome Sequencing Analyses
+## Trimming primers with Trimmomatic
+##### Please refer to http://www.usadellab.org/cms/?page=trimmomatic for Trimmomatic download and instructions
 ```
 $ for i in `ls inputs/*R1*fastq.gz`; do R1=`echo $i | sed 's/inputs\///g' | sed 's/\.fastq\.gz$//g'`; R2=`echo $i | sed 's/inputs\///g' | sed 's/\.fastq\.gz$//g' | sed 's/_R1_/_R2_/g'`; java -jar /path/to/Trimmomatic-0.33/trimmomatic-0.33.jar PE -phred33 $i `echo $i | sed 's/_R1_/_R2_/g'` $R1.fq $R1.unpaired.fq $R2.fq $R2.unpaired.fq HEADCROP:20; done
 ```
+> NOTES:
+1) Please pay attention that you need to type your trimmmomatic installation full PATH after the "java -jar" command above.
+2) Edit the "HEADCROP:20" parameter according to your primers' average length.
+
 Removing unpaired reads after trimming:
 ```
 $ rm *unpaired*
