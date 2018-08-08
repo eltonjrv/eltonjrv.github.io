@@ -92,7 +92,7 @@ $ for i in `ls inputs/*R1*fastq.gz`; do R1=`echo $i | sed 's/inputs\///g' | sed 
 ```
 > NOTES:
 1) Please pay attention that you need to type your trimmmomatic installation full PATH after the "java -jar" command above.
-2) Edit the "HEADCROP:20" parameter according to your primers' average length.
+2) Edit the "HEADCROP:20" parameter according to your primers' average length. In this example, primers length are ~ 20 bp.
 
 Removing unpaired reads after trimming:
 ```
@@ -106,7 +106,7 @@ Moving trimmed-primers fastq files to that new directory:
 ```
 $ mv *fq inputs-woPrimers/
 ```
-## Running UPARSE on sequenced amplicons without primers
+## Running UPARSE on sequenced amplicons
 ##### Please refer to https://www.drive5.com/usearch/download.html in order to download USEARCH tools
 ```
 $ bash run-uparse-mj20-amp340-380-ZOTUs.bash inputs-woPrimers/ >run-uparse.log
