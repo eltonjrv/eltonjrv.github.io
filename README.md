@@ -112,6 +112,6 @@ $ mv *fq inputs-woPrimers/
 $ bash run-uparse-mj20-amp340-380-ZOTUs.bash inputs-woPrimers/ >run-uparse.log
 ```
 >NOTES:
-1) UPARSE does mate joining and quality filtering of your sequenced amplicons, ZOTUs/ESVs assembly, taxonomic classification, and both alpha- and beta-diversity analyses on your samples.
+1) UPARSE pipeline does a series of tasks such as: mate joining and quality filtering of your sequenced amplicons, ZOTUs/ESVs assembly, taxonomic classification, and both alpha- and beta-diversity analyses on all your samples.
 2) The "run-uparse-mj20-amp340-380-ZOTUs.bash" BASH script may be obtained [here](https://github.com/eltonjrv/microbiome.westernu/blob/master/run-uparse-mj20-amp340-380-ZOTUs.bash).
 3) An "outputs" directory will be created and all uparse-generated files will be placed within it.
