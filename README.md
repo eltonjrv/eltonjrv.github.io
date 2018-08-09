@@ -129,6 +129,7 @@ $ cd inputs/
 $ ln -s ../../demux/demux-unzipped/*/data/*gz .
 $ cd ../
 ```
+>NOTE: If you are coming straight to this topic because you already had demultiplexed your samples on your own, please disconsider the "ln -s" command above and just place your demultiplexed and compressed fastq files (\*.fastq.gz) into the "inputs" dir.
 ### 2.1. Trimming primers with Trimmomatic (this must be done prior running UPARSE)
 ##### Please refer to http://www.usadellab.org/cms/?page=trimmomatic for Trimmomatic download and instructions
 2.1.1. Running trimmomatic
