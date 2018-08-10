@@ -129,7 +129,7 @@ $ cd inputs/
 $ ln -s ../../demux/demux-unzipped/*/data/*gz .
 $ cd ../
 ```
->NOTE: If you are coming straight to this topic because you already had demultiplexed your samples on your own, please disconsider the "ln -s" command above and just place your demultiplexed and compressed fastq files (\*.fastq.gz) into the "inputs" dir. Please also make sure that your fastq.gz file names start with "sampleID" followed by "\_1\_L001\_R[12]\_001.fastq.gz". For example, take a look at our [sample metadata table](https://github.com/eltonjrv/microbiome.westernu/blob/accFiles/samples-metadata.tsv) and see that the paired sequenced reads file names for the first sample are: 865A1\_1\_L001\_R1\_001.fastq.gz and 865A1\_1\_L001\_R2\_001.fastq.gz.
+>NOTE: If you are coming straight to this topic because you already had demultiplexed your samples on your own, please disconsider the "ln -s" command above and just place your demultiplexed and compressed fastq files (\*.fastq.gz) into the "inputs" dir. Please also make sure that your fastq.gz file names start with "sampleID" followed by "\_1\_L001\_R[12]\_001.fastq.gz". For example, take a look at our [sample metadata table](https://github.com/eltonjrv/microbiome.westernu/blob/accFiles/samples-metadata.tsv) and see that, for the first sample, the paired file names will be the following: 865A1\_1\_L001\_R1\_001.fastq.gz and 865A1\_1\_L001\_R2\_001.fastq.gz.
 ### 2.1. Trimming primers with Trimmomatic (this must be done prior running UPARSE)
 ##### Please refer to http://www.usadellab.org/cms/?page=trimmomatic for Trimmomatic download and instructions
 2.1.1. Running trimmomatic
