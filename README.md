@@ -24,7 +24,7 @@ diseases in humans and animals. We are currently performing two independent micr
 studies with the following samples: (i) cat fleas from two different
 geographical locations in California (southern CA and northern CA); and (ii)
 dog blood samples (either previously diagnosed for tick-borne diseases or reported as
-negative). Our customized computational workflow has been deployed as ad-hoc BASH
+negative). Our customized computational workflow has been deployed as *ad hoc* BASH
 scripts that merge several different available tools in order to define the operational taxonomic units
 (OTUs) for each sample and accurately classify and compare them. Interesting results have
 already been achieved for the flea study and are disclosed in the following publication: 
