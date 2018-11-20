@@ -1,5 +1,5 @@
-### The following is a **Standard Operating Procedure (SOP)** for microbiome analyses applied to vector-borne disease diagnostics using 16S rRNA Next-Generation Sequencing.
-##### Research Team: Elton Vasconcelos, Joseph Geiger, Brian Oakley, Pedro Diniz.
+### **Standard Operating Procedure (SOP)** for microbiome analyses applied to vector-borne disease diagnostics using 16S rRNA Next-Generation Sequencing.
+#### Research Team: Elton Vasconcelos, Joseph Geiger, Brian Oakley, Pedro Diniz.
 ##### Affiliation: College of Veterinary Medicine at Western University of Health Sciences, Pomona, CA, USA.
 >Author: Elton Vasconcelos
 
