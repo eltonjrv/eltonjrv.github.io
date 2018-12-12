@@ -32,4 +32,4 @@ already been achieved for the flea study and are disclosed in the following publ
 
 We believe that the approaches we are developing may facilitate
 future applications of microbiome research within several veterinary sciences subareas and
-fulfill a longer-term goal of adoption of metagenomics for routine use by clinicians and/or researchers.
+fulfill a long-term goal of adoption of metagenomics for routine use by clinicians and/or researchers.
