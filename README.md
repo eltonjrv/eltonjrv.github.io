@@ -2,6 +2,7 @@
 #### Research Team: Elton Vasconcelos, Joseph Geiger, Brian Oakley, Pedro Diniz.
 ##### Affiliation: College of Veterinary Medicine at Western University of Health Sciences, Pomona, CA, USA.
 >Author: Elton Vasconcelos (Oct/2018)
+>Reviewed and retested by Chayan Roy and Elton Vasconcelos (Sep/2020)
 
 ################## Software to be installed prior executing this SOP ################## 
   - [QIIME1](http://qiime.org/install/install.html)\*
