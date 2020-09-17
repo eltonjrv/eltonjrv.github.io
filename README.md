@@ -1,6 +1,6 @@
 ### **Standard Operating Procedure (SOP)** for microbiome analyses applied to vector-borne disease diagnostics using 16S rRNA Next-Generation Sequencing.
 #### Research Team: Elton Vasconcelos*, Chayan Roy, Joseph Geiger, Brian Oakley, Pedro Diniz.
-##### Affiliation: College of Veterinary Medicine at Western University of Health Sciences, Pomona, CA, USA. \*Current address: Leeds Omics, University of Leeds, UK.
+##### Affiliation: College of Veterinary Medicine at Western University of Health Sciences, Pomona, CA, USA. \*Current affiliation: Leeds Omics, University of Leeds, UK.
 >Author: Elton Vasconcelos (Oct/2018)
 
 >Reviewed and retested by Chayan Roy and Elton Vasconcelos (Sep/2020)
