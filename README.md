@@ -73,7 +73,7 @@ $ cd demux/
 ```
 $ perl prepBCmapFiles4Qiime2.pl iNext-barcodes.tab samples-map.tab 
 ```
->NOTES: One must have both the *ad hoc* script (prepBCmapFiles4Qiime2.pl) and two the input files (iNext-barcodes.tab and samples-map.tab) placed into the current directory.
+>NOTES: One must have both the *ad hoc* script (prepBCmapFiles4Qiime2.pl) and the two input files (iNext-barcodes.tab and samples-map.tab) placed into the current directory.
 I) "prepBCmapFiles4Qiime2.pl" PERL script can be obtained [here](https://github.com/eltonjrv/microbiome.westernu/blob/bin/prepBCmapFiles4Qiime2.pl).
 II) See/Download [iNext-barcodes.tab](https://github.com/eltonjrv/microbiome.westernu/blob/accFiles/iNext-barcodes.tab) and [samples-map.tab](https://github.com/eltonjrv/microbiome.westernu/blob/accFiles/samples-map.tab) as guiding examples, if you have adopted/encountered a demultiplexing situation like ours.
 
