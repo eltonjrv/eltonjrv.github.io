@@ -1,11 +1,12 @@
 # Customized RDP reference database
 The original fasta file was downloaded from http://drive5.com/sintax/rdp_16s_v16_sp.fa.gz
 
-Then, after uncompressing with "gunzip" command, we added, at the end of the file, the following 16S rRNA sequences from SILVA-DB: 
->*Mycoplasma haemocanis*  (SILVA ID: H0HHaemo)
+Then, after uncompressing with "gunzip" command, we appended, at the end of the file, 16S rRNA sequences from the following species: 
 
->*Ehrlichia canis* (SILVA ID: I8UCani3)
+>*Ehrlichia canis* and *Ehrlichia chafeensis*
 
->*Anaplasma platys* (SILVA ID: IE3Plat5)
+>*Anaplasma platys* and *Anaplasma phagocytophilum*
 
-Those are vector-borne pathogens of interest in Vet Med that were missing at the original RDP file from Robert Edgar (Uparse developer).
+>*Mycoplasma haemocanis* and *Mycoplasma haematoparvum*
+
+Those are vector-borne pathogens of interest in Vet Med that were missing at the original RDP file from Robert Edgar (Uparse developer). Those sequences are exactly the same as inserted in our positive controls plasmids for the multi-infection simulations. Please see Methods section "Positive controls and standard curves" subsection for details on GenBank accesssion numbers (Vasconcelos et al., 2020 - in preparation). M. haematoparvum is derived from AY383241.1.
