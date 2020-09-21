@@ -32,7 +32,7 @@ rm -rf $out
 mkdir -p $out
 
 # Assemble paired reads, put sample names into read labels
-usearch -fastq_mergepairs $1/*_R1_*.fq -fastq_minovlen 20 -fastq_minmergelen 340 -fastq_maxmergelen 380 -relabel @ -fastqout $out/merged.fq
+usearch -fastq_mergepairs $1/*_R1_*.fq -fastq_minmergelen 250 -fastq_maxmergelen 450 -relabel @ -fastqout $out/merged.fq
 
 # Discard reads which probably have errors (quality filtering)
 usearch -fastq_filter $out/merged.fq -fastq_maxee 1.0 -relabel Filt -fastaout $out/filtered.fa
