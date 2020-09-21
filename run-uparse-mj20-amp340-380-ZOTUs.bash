@@ -7,7 +7,7 @@
 ###########################################################################################################################
 # NOTE-1: One may tune parameters on each command below according to his/her needs.
 # NOTE-2: On the first uparse command "usearch -fastq_mergepairs" (line 35), we have set a minimum of 20 bp for merging R1 and R2 mates (accepting a maximum difference of 5 bases within the overlapped region, as set by default), as well as a minimum and maximum merged sequence length of 340 and 380, respectively. This is because our V4-V5 target amplicon region is ~ 400 bp long and, after primers are trimmed, we get a ~ 360 bp-long full amplicon to be joined, allowing an arbitrary  +/- 20 bp range. 
-# NOTE-3: This script uses a customized RDP refDB, which we added Mycoplasma_haemocanis, Ehrlichia_canis, and Anaplasma_platys 16S rRNA sequence from SILVA-DB (IDs: H0HHaemo, I8UCani3, and IE3Plat5). In order to download it, please go to https://github.com/eltonjrv/microbiome.westernu/tree/refDB and click on the "Clone or download" green button, then "Download ZIP". After unzipping the downloaded folder, uncompress the "rdp_16s-wMhaemocanis-Ecanis-Aplatys.fa.gz" file with "gunzip" command, and then copy it to the directory where you will run this script. Line 52 below will format that file in order to be used as a refDB (*.udb) for taxonomic classification purpose. If you want to use your own customized refDB, please edit line 52.
+# NOTE-3: This script uses a customized RDP refDB, which we have added Ehrlichia_canis, Ehrlichia_chafeensis, Anaplasma_platys, Anaplasma_phagocytophilum, Mycoplasma_haemocanis,Mycoplasma_haematoparvum 16S rRNA sequences.
 
 if [ xusearch == x ] ; then
 	echo Must set \usearch >> /dev/stderr
@@ -49,8 +49,8 @@ usearch -otutab $out/merged.fq -zotus $out/zotus.fa -strand plus -otutabout $out
 perl -pi -e 's/Otu/Zotu/g' $out/zotu*
 
 ### Taxonomic classification ###
-usearch -makeudb_sintax rdp_16s-wMhaemocanis-Ecanis-Aplatys.fa -output rdp_16s-wMhaemocanis-Ecanis-Aplatys.udb 	#formatting refDB
-usearch -sintax $out/zotus.fa -db rdp_16s-wMhaemocanis.udb -tabbedout $out/zotus.sintax -strand both -sintax_cutoff 0.8
+usearch -makeudb_sintax rdp_16s_extra_seqs.fa -output rdp_16s_extra_seqs.udb 	#formatting refDB
+usearch -sintax $out/zotus.fa -db rdp_16s_extra_seqs.udb -tabbedout $out/zotus.sintax -strand both -sintax_cutoff 0.8
 perl -pi -e 's/\t$/\td:Bacteria/g' $out/zotus.sintax
 usearch -sintax_summary $out/zotus.sintax -otutabin $out/zotus_table_uparse.tsv -output $out/phylum_summary_zotus.txt -rank p
 usearch -sintax_summary $out/zotus.sintax -otutabin $out/zotus_table_uparse.tsv -output $out/family_summary_zotus.txt -rank f
