@@ -3,12 +3,11 @@
 # Adjusted by Elton Vasconcelos for own purposes (Jan/2018)
 # Please refer to https://www.drive5.com/usearch/download.html in order to download USEARCH tools
 # Script that takes paired-end Illumina fastq files as input and performs sequencing quality filtering, ZOTUs/ESVs assembly, taxonomic classification, and some diversity analyses.
-# Usage: bash run-uparse-mj20-amp340-380-ZOTUs.bash [path-to-input-fastq-files]
+# Usage: bash run-uparse-amp250-450-ZOTUs.bash [path-to-input-fastq-files]
 ###########################################################################################################################
 # NOTE-1: One may tune parameters on each command below according to his/her needs.
-# NOTE-2: On the first uparse command "usearch -fastq_mergepairs" (line 35), we have set a minimum of 20 bp for merging R1 and R2 mates (accepting a maximum difference of 5 bases within the overlapped region, as set by default), as well as a minimum and maximum merged sequence length of 340 and 380, respectively. This is because our V4-V5 target amplicon region is ~ 400 bp long and, after primers are trimmed, we get a ~ 360 bp-long full amplicon to be joined, allowing an arbitrary  +/- 20 bp range. 
-# NOTE-3: This script uses a customized RDP refDB, which we have added Ehrlichia_canis, Ehrlichia_chafeensis, Anaplasma_platys, Anaplasma_phagocytophilum, Mycoplasma_haemocanis,Mycoplasma_haematoparvum 16S rRNA sequences.
-# NOTE-4: If you want to use your own customized refDB fasta file, please edit script's lines 53 and 54.
+# NOTE-2: This script uses a customized RDP refDB, which we have added Ehrlichia_canis, Ehrlichia_chafeensis, Anaplasma_platys, Anaplasma_phagocytophilum, Mycoplasma_haemocanis,Mycoplasma_haematoparvum 16S rRNA sequences.
+# NOTE-3: If you want to use your own customized refDB fasta file, please edit script's lines 52 and 53.
 
 if [ xusearch == x ] ; then
 	echo Must set \usearch >> /dev/stderr
