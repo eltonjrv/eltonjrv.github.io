@@ -209,7 +209,7 @@ $ grep '_neg_' zotus_table_uparse-customized.tsv2 | cut -f 2 | sort -u >ZotusOnN
 ```
 >NOTE: On the command above, replace '\_neg\_' by any other tag that characterizes the negative control in your sample descriptions (e.g. NTC, water, blank, etc ...)
 
-3.2.3. Then generate a new zotu table without any zotu present in the NTCs:
+3.2.3. Then, with the following PERL code, create a new zotu table without any NTC-derived zotu:
 ```
 $  perl -e 'open(FILE, "zotus_table_uparse-customized.tsv2"); open(FILE2, "ZotusOnNTC.txt"); while(<FILE2>){chomp($_); $hash{$_} = 1;} while(<FILE>){chomp($_); @array = split(/\t/, $_); if($hash{$array[1]} eq ""){print("$_\n");}}' >zotus_table_uparse-customized-woNTCzotus.tsv
 ```
