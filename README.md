@@ -202,6 +202,7 @@ $ sed 's/\td\:.*s\:/\ts\:/g' zotus_table_uparse-customized.tsv |  sed 's/\td\:.*
 $ Rscript NTC-ZOTUs-subtraction.R zotus_table_uparse-customized.tsv
 ```
 >NOTE: "NTC-ZOTUs-subtraction.R" script is provided [here](https://github.com/eltonjrv/microbiome.westernu/blob/bin/NTC-ZOTUs-subtraction.R).
+
 3.2.2. Alternatively, one may want to remove the whole NTC-derived ZOTUs content. So, first catch all zotus present in negative control samples:
 ```
 $ grep '_neg_' zotus_table_uparse-customized.tsv2 | cut -f 2 | sort -u >ZotusOnNTC.txt
