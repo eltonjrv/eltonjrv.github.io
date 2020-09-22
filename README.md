@@ -159,14 +159,14 @@ $ mv *fq inputs-woPrimers/
 ##### Please refer to https://www.drive5.com/usearch/download.html in order to download USEARCH tools
 2.2.1. Running the actual microbiome analyzer tool:
 ```
-$ bash run-uparse-mj20-amp340-380-ZOTUs.bash inputs-woPrimers/ 2>run-uparse.log
+$ bash run-uparse-amp250-450-ZOTUs.bash inputs-woPrimers/ 2>run-uparse.log
 ```
 >NOTES:
 I) UPARSE pipeline does a series of tasks such as: mate joining and quality filtering of your sequenced amplicons, ZOTUs/ESVs assembly, taxonomic classification, and both alpha- and beta-diversity analyses on all your samples.
 II) "run-uparse-amp250-450-ZOTUs.bash" BASH script may be obtained [here](https://github.com/eltonjrv/microbiome.westernu/blob/master/run-uparse-amp250-450-ZOTUs.bash).
 IIa) One may tune parameters on each command in the script according to his/her needs.
 IIb) This script uses a customized RDP refDB, which we have added Ehrlichia_canis, Ehrlichia_chafeensis, Anaplasma_platys, Anaplasma_phagocytophilum, Mycoplasma_haemocanis and Mycoplasma_haematoparvum 16S rRNA sequences. In order to download it, please go [here](https://github.com/eltonjrv/microbiome.westernu/tree/refDB) and click on the "Clone or download" green button, then "Download ZIP". After unzipping the downloaded folder, uncompress the "rdp_16s_extra_seqs.fa.gz" file with "gunzip" command, and then place it into the directory where you will run this script ("uparse-run/" in this example). Line 52 from the ""run-uparse-amp250-450-ZOTUs.bash"" script will format that file in order to be used as a refDB (\*.udb) for taxonomic classification purposes. If you want to use your own customized refDB fasta file, please edit script's lines 52 and 53.
-IIc) In order to play with different OTU clustering % identity thresholds (95, 97, and 99%), please run the alternative "run-uparse-amp250-450-OTUs95_97_99_100.bash" script that is provided [here](https://github.com/eltonjrv/microbiome.westernu/blob/master/run-uparse-amp250-450-OTUs95_97_99_100.bash).
+IIc) In order to play with different OTU clustering % identity thresholds (95, 97, and 99%), one must run the alternative "run-uparse-amp250-450-OTUs95_97_99_100.bash" script that is provided [here](https://github.com/eltonjrv/microbiome.westernu/blob/master/run-uparse-amp250-450-OTUs95_97_99_100.bash).
 III) An "outputs" directory will be created and all uparse-generated files will be placed within it.
 
 
