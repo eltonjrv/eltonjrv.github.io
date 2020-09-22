@@ -1,7 +1,7 @@
 #!/bin/bash
 # Robert Edgar pipeline presented at STAMPS 2017 course (Aug/2017)
 # Adjusted by Chayan Roy during 2019-2020
-# usage: run-uparse*.bash [path-to-input-fastq-files]
+# usage: run-uparse-amp250-450-OTUs95_97_99_100.bash [path-to-input-fastq-files]
 # we calculate 99%, 97% and 95% identity cutoffs from the ZOTUs using the "usearch -cluster_smallmem" command, as recommended
 # by Robert at https://www.drive5.com/usearch/manual/uparse_otu_radius.html
 
