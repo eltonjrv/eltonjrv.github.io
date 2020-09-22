@@ -192,18 +192,23 @@ II) There are two other embedded scripts that must also be placed within the cur
 III) A "zotus_table_uparse-customized.tsv" main output file is created with the above command.
 
 ### 3.1. Improving customized ZOTU table
-3.1.1. In case one wants to keep only the last taxonomic level assigned to each zotu, instead of seeing the whole taxonomic classification, run the following:
+3.1.1. In case one wants to keep only the last taxonomic level assigned to each zotu, instead of seeing the whole taxonomic classification (from phylum to species), run the following:
 ```
 $ sed 's/\td\:.*s\:/\ts\:/g' zotus_table_uparse-customized.tsv |  sed 's/\td\:.*g\:/\tg\:/g' | sed 's/\td\:.*f\:/\tf\:/g' | sed 's/\td\:.*o\:/\to\:/g' | sed 's/\td\:.*c\:/\tc\:/g' | sed 's/\td\:.*p\:/\tp\:/g' >zotus_table_uparse-customized.tsv2
 ```
-### 3.2. Removing zotus that are present in Neg_Ctrl (NTC, water-only) from all samples.
-3.2.1. Catching all zotus present in negative control samples (NTCs):
+### 3.2. Subtracting NTC-derived ZOTUs counts OR removing the whole NTC-derived ZOTUs content from all target samples.
+3.2.1. Subtracting NTC-derived ZOTUs counts from target samples
+```
+$ Rscript NTC-ZOTUs-subtraction.R zotus_table_uparse-customized.tsv
+```
+>NOTE: "NTC-ZOTUs-subtraction.R" script is provided [here](https://github.com/eltonjrv/microbiome.westernu/blob/bin/NTC-ZOTUs-subtraction.R).
+3.2.2. Alternatively, one may want to remove the whole NTC-derived ZOTUs content. So, first catch all zotus present in negative control samples:
 ```
 $ grep '_neg_' zotus_table_uparse-customized.tsv2 | cut -f 2 | sort -u >ZotusOnNTC.txt
 ```
 >NOTE: On the command above, replace '\_neg\_' by any other tag that characterizes the negative control in your sample descriptions (e.g. NTC, water, blank, etc ...)
 
-3.2.2. Generating a new zotu table without any zotu present in the NTCs:
+3.2.3. Then generate a new zotu table without any zotu present in the NTCs:
 ```
 $  perl -e 'open(FILE, "zotus_table_uparse-customized.tsv2"); open(FILE2, "ZotusOnNTC.txt"); while(<FILE2>){chomp($_); $hash{$_} = 1;} while(<FILE>){chomp($_); @array = split(/\t/, $_); if($hash{$array[1]} eq ""){print("$_\n");}}' >zotus_table_uparse-customized-woNTCzotus.tsv
 ```
