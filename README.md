@@ -3,7 +3,7 @@ The original fasta file was downloaded from http://drive5.com/sintax/rdp_16s_v16
 
 Then, after uncompressing with "gunzip" command, in order to create our customized rdp_16s_extra_seqs.fa file, we appended 16S rRNA sequences from the following species: 
 
->*Ehrlichia canis* and *Ehrlichia chafeensis*
+>*Ehrlichia canis* and *Ehrlichia chaffeensis*
 
 >*Anaplasma platys* and *Anaplasma phagocytophilum*
 
