@@ -1,10 +1,12 @@
 ### **Standard Operating Procedure (SOP)** for microbiome analyses applied to vector-borne disease diagnostics using 16S rRNA Next-Generation Sequencing.
 #### Research Team: Elton Vasconcelos*, Chayan Roy, Joseph Geiger, Brian Oakley, Pedro Diniz.
-##### Affiliation: College of Veterinary Medicine at Western University of Health Sciences, Pomona, CA, USA. \*Current affiliation: Leeds Omics, University of Leeds, UK.
+##### Affiliation: College of Veterinary Medicine at Western University of Health Sciences, Pomona, CA, USA. 
+\*Current affiliation: Leeds Omics, University of Leeds, UK.
 >Author: Elton Vasconcelos (Oct/2018)
 
 >Reviewed and retested by Chayan Roy and Elton Vasconcelos (Sep/2020)
 
+If you use this pipeline (or part of it) on your research, please cite [Vasconcelos et al., 2021 - BMC Vet.Res.](https://bmcvetres.biomedcentral.com/articles/10.1186/s12917-021-02969-9)
 ################## Software to be installed prior executing this SOP ################## 
   - [QIIME1](http://qiime.org/install/install.html)\*
   - [QIIME2](https://docs.qiime2.org/2018.6/install)\*
