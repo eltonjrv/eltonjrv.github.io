@@ -69,7 +69,7 @@ $ source deactivate
 ```
 ### 1.2. Demultiplexing with QIIME2 tools and an *ad hoc* PERL script 
 ##### Please refer to  https://docs.qiime2.org/2018.6/install for instructions on how to install QIIME2
-1.2.1. Creating a directory for the demultiplexing job ad entering it:
+1.2.1. Creating a directory for the demultiplexing job and moving into it:
 ```
 $ mkdir demux
 $ cd demux/
