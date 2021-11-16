@@ -28,7 +28,11 @@ negative). Our customized computational workflow has been deployed as *ad hoc* B
 scripts that merge several different available tools in order to define the operational taxonomic units
 (OTUs) for each sample and accurately classify and compare them. Interesting results have
 already been achieved for the flea study and are disclosed in the following publication: 
->**Assessing cat flea microbiomes in northern and southern California by 16S rRNA Next Generation Sequencing.** Vasconcelos et al., 2018. *Vector-Borne and Zoonotic Diseases* (https://www.ncbi.nlm.nih.gov/pubmed/29893631). 
+>**Assessing cat flea microbiomes in northern and southern California by 16S rRNA Next Generation Sequencing.** [Vasconcelos et al., 2018](https://www.ncbi.nlm.nih.gov/pubmed/29893631). *Vector-Borne and Zoonotic Diseases*. 
+
+Ultimately, we have developed an SOP for microbiome analyses applied to canine vector-borne pathogens' investigation:
+>**Data analysis workflow for the detection of canine vector-borne pathogens using 16 S rRNA Next-Generation Sequencing.** [Vasconcelos et al., 2021](https://bmcvetres.biomedcentral.com/articles/10.1186/s12917-021-02969-9). *BMC Veterinary Research*.
+Please refer to the SOP branch on this github page in order to go through the pipeline in details.
 
 We believe that the approaches we are developing may facilitate
 future applications of microbiome research within several veterinary sciences subareas and
