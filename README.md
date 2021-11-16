@@ -28,7 +28,7 @@ In the example below, we are referring to a two-round PCR method on which two pa
 a) iNEXT barcodes (For_A-H - Rev_1-12) on the 1st round of amplifications, and 
 b) Illumina overhang adapter sequences (For_i5 and Rev_i7) on the 2nd round.
 For more details on this approach, please refer to [Faircloth & Glenn, 2012 - PLoS One](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0042543).
->NOTE: If you have not adopted this approach and/or have all your fastq files already demultiplexed, please go straight to topic 2. 
+>NOTE: If you have not adopted this approach and/or have all your fastq files already demultiplexed, please move straight to topic 2 below. 
 
 ### 1.1. Debarcoding with QIIME1 tools
 ##### Please refer to http://qiime.org/install/install.html for instructions on how to install QIIME1
