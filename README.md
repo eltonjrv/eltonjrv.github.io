@@ -118,7 +118,7 @@ $ for j in `ls Exp*seqs.qza`; do for i in `ls iNextRev*tab`; do qiime cutadapt d
 ```
 $ rm *untrimmed.qza
 ```
-1.2.5. Summarizing the demultiplexed qza files as qzv ones in order to be visualized at https://view.qiime2.org/ (Important for sequenced reads quality control assessment/visualization on each sample):
+1.2.5. Summarizing demultiplexed qza files as qzv ones in order to be visualized at https://view.qiime2.org/ (Important for sequenced reads quality control assessment/visualization on each sample):
 ```
 $ for i in `ls *demultiplexed-seqs.qza`; do qiime demux summarize --i-data $i --o-visualization `echo $i | sed 's/qza$/qzv/g'`; done
 ```
