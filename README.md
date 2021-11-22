@@ -110,11 +110,11 @@ $ for j in `ls Exp*seqs.qza`; do for i in `ls iNextRev*tab`; do qiime cutadapt d
 ```
 $ rm *untrimmed.qza
 ```
-1.2.8. Summarizing the demultiplexed qza files as qzv ones in order to be visualized at https://view.qiime2.org/ (Important for sequenced reads quality control assessment/visualization on each sample):
+1.2.5. Summarizing the demultiplexed qza files as qzv ones in order to be visualized at https://view.qiime2.org/ (Important for sequenced reads quality control assessment/visualization on each sample):
 ```
-$ for i in `ls *OUT.qza`; do qiime demux summarize --i-data $i --o-visualization `echo $i | sed 's/qza$/qzv/g'`; done
+$ for i in `ls *demultiplexed-seqs.qza`; do qiime demux summarize --i-data $i --o-visualization `echo $i | sed 's/qza$/qzv/g'`; done
 ```
-1.2.9. Deactivating qiime2 environment:
+1.2.6. Deactivating qiime2 environment:
 ```
 $ source deactivate
 ```
@@ -122,14 +122,14 @@ or
 ```
 $ conda deactivate
 ```
-1.2.10. Creating a directory to store and uncompress demultiplexed qza files, in order to have fastq files for topic 2 below:
+1.2.7. Creating a directory to store and uncompress demultiplexed qza files, in order to have fastq files for topic 2 below:
 ```
 $ mkdir demux-unzipped
 $ cd demux-unzipped/
-$ ln -s ../*demuxOUT.qza .
+$ ln -s ../*demultiplexed-seqs.qza .
 $ ls | xargs -i unzip {}
 ```
-1.2.11. Going back to the parent projectX/ dir:
+1.2.8. Going back to the parent projectX/ dir:
 ```
 $ cd ../../
 ```
