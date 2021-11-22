@@ -51,21 +51,21 @@ $ mv your_R1_file.fastq.gz forward.fastq.gz
 $ mv your_R2_file.fastq.gz reverse.fastq.gz
 ```
 1.1.5.2. If you have several (n) pairs of fastq files, it will be required to create several (n) experimental subdirectories within raw_data/;
-1.1.5.2.a. For example, the command below automatically creates 10 subdirectories named "ExpN", where N is a number from 1 to 10. Change it according to the number of fastq files pairs you have on hands.
+1.1.5.2.a. For example, the command below automatically creates 10 subdirectories named "ExpN", where N is a number from 1 to 10. Edit the command according to the total number of fastq files pairs you have on hands.
 ```
 $ for i in `seq 1 10`; do mkdir Exp$i; done
 ```
-1.1.5.2.b. Then move each of your experimental pair of fastq files that were already placed within raw_data/ to each respective recently created subdirectory (Exp1 to Exp10), and rename the files. Below is an example of the commands' series for the Exp1 instance:
+1.1.5.2.b. Then move each pair of fastq files that were already placed within raw_data/ (sub-item 1.1.4) to each respective recently created subdirectory (Exp1 to Exp10), and rename the files. Below is an example of the commands' set for the Exp1 instance:
 ```
-$ mv your_first_fastq_pair_R*.fastq.gz Exp1/
+$ mv your_first_fastq_pair_R[12]*.fastq.gz Exp1/
 $ cd Exp1/
 $ mv your_first_fastq_pair_R1.fastq.gz forward.fastq.gz
-$ mv your_first_fastq_pair_R1.fastq.gz reverse.fastq.gz
+$ mv your_first_fastq_pair_R2.fastq.gz reverse.fastq.gz
 $ cd ../
 ```
->NOTE: Since we have no idea on how your fastq files are originally named, we recommend that you move them separately with the individual commands set above. In case you are famliar with the Unix Shell, feel free to do it with a "for" loop.
+>NOTE: Since we don't know how your fastq files are originally named, we recommend that you move them separately with the individual commands set above. In case you are famliar with the Unix Shell, feel free to do it through a "for" loop.
 
-1.1.6. Creating a directory for the demultiplexing job and moving into it:
+1.1.6. Creating a directory for the demultiplexing job and entering it:
 ```
 $ mkdir demux
 $ cd demux/
@@ -75,18 +75,17 @@ $ cd demux/
 $ source activate qiime2-2021.8
 ```
 1.1.8. Importing fastq files as qiime2 .qza format:
-1.1.8.1. For a single pair of fastq files, do the following:
+1.1.8.1. For a single pair of fastq files (like on 1.1.5.1 sub-item above), do the following:
 ```
 $  qiime tools import --type MultiplexedPairedEndBarcodeInSequence --input-path ../raw_data/ --output-path multiplexed-seqs.qza
 ```
-1.1.8.2. For several (n) pairs of fastq files, do this instead:
+1.1.8.2. For several (n) pairs of fastq files (like on 1.1.5.2 sub-item above), do this instead:
 ```
 $ for i in `ls -d ../raw_data/Exp*/`; do qiime tools import --type MultiplexedPairedEndBarcodeInSequence --input-path $i --output-path `echo $i | sed 's/.*\///g'`-multiplexed-seqs.qza; done
 ```
 
-### 1.2. Debarcoding and Demultiplexing with QIIME2 tools and an *ad hoc* PERL script 
-##### Please refer to  https://docs.qiime2.org/2018.6/install for instructions on how to install QIIME2
-
+### 1.2. Actual debarcoding and demultiplexing process with qiime cutadapt 
+1.2.1. Preparing a sample-barcode map file (samples-map-BCseq.tab)
 $ perl prepBCmapFiles4Qiime2.pl iNext-barcodes.tab samples-map.tab 
 ```
 >NOTES: One must have both the *ad hoc* script (prepBCmapFiles4Qiime2.pl) and the two input files (iNext-barcodes.tab and samples-map.tab) placed into the current directory.
