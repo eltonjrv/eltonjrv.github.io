@@ -70,8 +70,9 @@ $ cd ../
 ```
 >NOTE: Since we don't know how your fastq files are originally named, we recommend that you move them separately with the individual commands set above. In case you are famliar with the Unix Shell, feel free to do it through a "for" loop.
 
-1.1.6. Creating a directory for the demultiplexing job and entering it:
+1.1.6. Moving back to the parent directory (projectX/), creating a directory for the demultiplexing job and entering it:
 ```
+$ cd ../
 $ mkdir demux
 $ cd demux/
 ```
