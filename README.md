@@ -27,7 +27,7 @@ In the example below, we are referring to a two-round PCR method on which **two 
 a) iNEXT barcodes (For_A-H - Rev_1-12) on the 1st round of amplifications, and 
 b) Illumina overhang adapter sequences (For_i5 and Rev_i7) on the 2nd round.
 For more details on this approach, please refer to [Faircloth & Glenn, 2012 - PLoS One](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0042543).
->NOTE: If you have not employed this approach or have all your fastq files already demultiplexed, please take a look at [qiime2 demultiplexing forum] (https://forum.qiime2.org/t/demultiplexing-and-trimming-adapters-from-reads-with-q2-cutadapt/2313) or move straight to topic 2 below. 
+>NOTE: If you have not employed this approach or have all your fastq files already demultiplexed, please take a look at [qiime2 demultiplexing forum](https://forum.qiime2.org/t/demultiplexing-and-trimming-adapters-from-reads-with-q2-cutadapt/2313) or move straight to topic 2 below. 
 
 ### 1.1. Importing raw fastq files to QIIME2
 1.1.1.  Creating a project parent directory for the whole analysis:
