@@ -29,7 +29,7 @@ b) Illumina overhang adapter sequences (For_i5 and Rev_i7) on the 2nd round.
 For more details on this approach, please refer to [Faircloth & Glenn, 2012 - PLoS One](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0042543).
 >NOTE: If you have not employed this approach or have all your fastq files already demultiplexed, please take a look at [qiime2 demultiplexing forum](https://forum.qiime2.org/t/demultiplexing-and-trimming-adapters-from-reads-with-q2-cutadapt/2313) or move straight to topic 2 below. 
 
-### 1.1. Importing raw fastq files to QIIME2
+### 1.1. Preparing directories and importing raw fastq files to QIIME2
 1.1.1.  Creating a project parent directory for the whole analysis:
 ```
 $ mkdir projectX
@@ -63,30 +63,30 @@ $ mv your_first_fastq_pair_R1.fastq.gz forward.fastq.gz
 $ mv your_first_fastq_pair_R1.fastq.gz reverse.fastq.gz
 $ cd ../
 ```
->NOTE: Since we have no idea on how your fastq files are originally named, we recommend that you move them separately with individual the commands set above. In case you are famliar with the Unix Shell, feel free to do it with a "for" loop.
+>NOTE: Since we have no idea on how your fastq files are originally named, we recommend that you move them separately with the individual commands set above. In case you are famliar with the Unix Shell, feel free to do it with a "for" loop.
 
-1.1.6. Activating qiime2 environment (once you have properly installed it through this [link](https://docs.qiime2.org/2021.8/install):
-```
-$ source activate qiime2-2021.8
-```
-1.1.7. Compressing and renaming debarcoded files in order to use them as input for qiime2 "demux" command below
-```
-$ for i in `ls -d *barcodes`; do gzip $i/*fastq; mv $i/reads1.fastq.gz $i/forward.fastq.gz; mv $i/reads2.fastq.gz $i/reverse.fastq.gz; done
-```
-1.1.8. Going back to the parent projectX directory:
-```
-$ cd ../
-```
-
-### 1.2. Demultiplexing with QIIME2 tools and an *ad hoc* PERL script 
-##### Please refer to  https://docs.qiime2.org/2018.6/install for instructions on how to install QIIME2
-1.2.1. Creating a directory for the demultiplexing job and moving into it:
+1.1.6. Creating a directory for the demultiplexing job and moving into it:
 ```
 $ mkdir demux
 $ cd demux/
 ```
-1.2.2. Preparing map files that will associate specific barcodes' combination to their respective samples:
+1.1.7. Activating qiime2 environment (once you have properly installed it through this [link](https://docs.qiime2.org/2021.8/install):
 ```
+$ source activate qiime2-2021.8
+```
+1.1.8. Importing fastq files as qiime2 .qza format:
+1.1.8.1. For a single pair of fastq files, do the following:
+```
+$  qiime tools import --type MultiplexedPairedEndBarcodeInSequence --input-path ../raw_data/ --output-path multiplexed-seqs.qza
+```
+1.1.8.2. For several (n) pairs of fastq files, do this instead:
+```
+$ for i in `ls -d ../raw_data/Exp*/`; do qiime tools import --type MultiplexedPairedEndBarcodeInSequence --input-path $i --output-path `echo $i | sed 's/.*\///g'`-multiplexed-seqs.qza; done
+```
+
+### 1.2. Debarcoding and Demultiplexing with QIIME2 tools and an *ad hoc* PERL script 
+##### Please refer to  https://docs.qiime2.org/2018.6/install for instructions on how to install QIIME2
+
 $ perl prepBCmapFiles4Qiime2.pl iNext-barcodes.tab samples-map.tab 
 ```
 >NOTES: One must have both the *ad hoc* script (prepBCmapFiles4Qiime2.pl) and the two input files (iNext-barcodes.tab and samples-map.tab) placed into the current directory.
@@ -105,10 +105,7 @@ $ mv barcodes_*tab BCmapFiles/
 ```
 $ source activate qiime2-2018.6
 ```
-1.2.6. Importing qiime1-debarcoded fastq files as qiime2 .qza format:
-```
-$ for i in `ls -d ../raw_data/*-barcodes`; do qiime tools import --type EMPPairedEndSequences --input-path $i --output-path `echo $i | sed 's/.*\///g' | sed 's/\-barcodes/\-input4demux/g'`; done
-```
+
 1.2.7. Running the actual demultiplexing task with "qiime demux" command:
 ```
 $ for i in `ls BCmapFiles/`; do Mbase=`echo $i | sed 's/barcodes_[0-9]*\-//g' | sed 's/\.tab//g'`; qiime demux emp-paired --m-barcodes-file BCmapFiles/$i --m-barcodes-category BarcodeSequence --i-seqs `echo $Mbase`-input4demux.qza --o-per-sample-sequences `echo $i | sed 's/barcodes_//g' | sed 's/\.tab//g'`-demuxOUT.qza; done
