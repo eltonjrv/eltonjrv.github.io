@@ -39,7 +39,7 @@ $ mkdir projectX
 ```
 $ cd projectX/
 ```
-1.1.3. Creating a directory where there will be all your raw fastq files, and going within it:
+1.1.3. Creating a directory where all your raw fastq files will be placed in, and entering it:
 ```
 $ mkdir raw_data
 $ cd raw_data/
