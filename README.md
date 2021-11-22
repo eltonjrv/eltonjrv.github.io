@@ -81,6 +81,7 @@ $ cd demux/
 $ source activate qiime2-2021.8
 ```
 1.1.8. Importing fastq files as qiime2 .qza format:
+
 1.1.8.1. For a single pair of fastq files (coming from 1.1.5.1 sub-item above), do the following:
 ```
 $  qiime tools import --type MultiplexedPairedEndBarcodeInSequence --input-path ../raw_data/ --output-path multiplexed-seqs.qza
