@@ -76,7 +76,7 @@ $ cd ../
 $ mkdir demux
 $ cd demux/
 ```
-1.1.7. Activating qiime2 environment (once you have properly installed it through this [link](https://docs.qiime2.org/2021.8/install):
+1.1.7. Activating qiime2 environment (once you have properly installed it through this [link](https://docs.qiime2.org/2021.8/install)):
 ```
 $ source activate qiime2-2021.8
 ```
