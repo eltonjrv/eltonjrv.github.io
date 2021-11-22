@@ -44,7 +44,7 @@ $ cd projectX/
 $ mkdir raw_data
 $ cd raw_data/
 ```
-1.1.4. Transferring your fastq files to the current work directory (raw_data/) with your most suitable commando/tool (e.g. cp, scp, ftp, WinScp, FileZilla, etc ...).
+1.1.4. Transferring your fastq files to the current work directory (raw_data/) with your most suitable command/tool (e.g. cp, scp, ftp, WinScp, FileZilla, etc ...).
 1.1.5. Renaming your fastq files. 
 1.1.5.1. If you have only one pair of fastq files, rename R1 to forward.fastq.gz and R2 to reverse.fastq.gz, then move straight to sub-item 1.1.6:
 ```
