@@ -51,11 +51,19 @@ $ mv your_R1_file.fastq.gz forward.fastq.gz
 $ mv your_R2_file.fastq.gz reverse.fastq.gz
 ```
 1.1.5.2. If you have several (n) pairs of fastq files, it will be required to create several (n) experimental subdirectories within raw_data/;
-1.1.5.2.a. For example, the command below automatically creates 10 directories named "ExpN", where N is a number from 1 to 10.
+1.1.5.2.a. For example, the command below automatically creates 10 subdirectories named "ExpN", where N is a number from 1 to 10. Change it according to the number of fastq files pairs you have on hands.
 ```
-for i in `seq 1 10`; do mkdir Exp$i; done
+$ for i in `seq 1 10`; do mkdir Exp$i; done
 ```
-1.1.5.2.b. Then copy each of your experimental pair of fastq files to each respective directory (Exp1 to Exp10).
+1.1.5.2.b. Then move each of your experimental pair of fastq files that were already placed within raw_data/ to each respective recently created subdirectory (Exp1 to Exp10), and rename the files. Below is an example of the commands' series for the Exp1 instance:
+```
+$ mv your_first_fastq_pair_R*.fastq.gz Exp1/
+$ cd Exp1/
+$ mv your_first_fastq_pair_R1.fastq.gz forward.fastq.gz
+$ mv your_first_fastq_pair_R1.fastq.gz reverse.fastq.gz
+$ cd ../
+```
+>NOTE: Since we have no idea on how your fastq files are originally named, we recommend that you move them separately with individual the commands set above. In case you are famliar with the Unix Shell, feel free to do it with a "for" loop.
 
 1.1.6. Activating qiime2 environment (once you have properly installed it through this [link](https://docs.qiime2.org/2021.8/install):
 ```
