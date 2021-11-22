@@ -48,12 +48,14 @@ $ cd raw_data/
 >NOTE: Since we don't know where you are pulling your data from, this step is intentionally left up to you.
 
 1.1.5. Renaming your fastq files. 
+
 1.1.5.1. If you have only one pair of fastq files, rename R1 to forward.fastq.gz and R2 to reverse.fastq.gz, then move straight to sub-item 1.1.6:
 ```
 $ mv your_R1_file.fastq.gz forward.fastq.gz
 $ mv your_R2_file.fastq.gz reverse.fastq.gz
 ```
 1.1.5.2. If you have several (n) pairs of fastq files, it will be required to create several (n) experimental subdirectories within raw_data/;
+
 1.1.5.2.a. For example, the command below automatically creates 10 subdirectories named "ExpN", where N is a number from 1 to 10. Edit the command according to the total number of fastq files pairs you have on hands.
 ```
 $ for i in `seq 1 10`; do mkdir Exp$i; done
