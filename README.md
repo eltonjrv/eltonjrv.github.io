@@ -80,7 +80,7 @@ $ cd demux/
 ```
 $ source activate qiime2-2021.8
 ```
-1.1.8. Importing fastq files as qiime2 .qza format:
+1.1.8. Importing fastq files as qiime2 .qza format.
 
 1.1.8.1. For a single pair of fastq files (coming from 1.1.5.1 sub-item above), do the following:
 ```
@@ -104,7 +104,8 @@ $ for i in `grep -v '^\#' samples-map-BCseq.tab | cut -f 3 | sort -u`; do grep -
 ```
 >NOTE: At the time this SOP was written, "qiime cutadapt" function considered only one iNext-Rev barcode per sample-barcode map file.
 
-1.2.3. Actual debarcoding and demultiplexing process with qiime cutadapt
+1.2.3. Actual debarcoding and demultiplexing process with qiime cutadapt.
+
 1.2.3.1. Debarcoding and demultiplexing a single pair of fastq file (multiplexed-seqs.qza file created on 1.1.8.1. step above):
 ```
 $ for i in `ls iNextRev*tab`; do qiime cutadapt demux-paired --i-seqs multiplexed-seqs.qza --m-forward-barcodes-file $i --m-forward-barcodes-column iNext-For --m-reverse-barcodes-file $i --m-reverse-barcodes-column iNext-Rev --o-per-sample-sequences `echo $i | sed 's/\-samples.*$//g'`-demultiplexed-seqs.qza --o-untrimmed-sequences `echo $i | sed 's/\-samples.*$//g'`-untrimmed.qza --verbose; done
