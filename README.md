@@ -4,7 +4,7 @@
 ##### \*Current affiliation: Leeds Omics, University of Leeds, UK.
 >Author: Elton Vasconcelos (Oct/2018)
 
->Reviewed and retested by Chayan Roy and Elton Vasconcelos (Sep/2020)
+>Reviewed and retested by Chayan Roy and Elton Vasconcelos (Sep/2020).
 >Reviewed by Elton Vasconcelos (Nov/2021)
 
 If you use this pipeline (or part of it) on your research, please cite [Vasconcelos et al., 2021 - BMC Vet.Res.](https://bmcvetres.biomedcentral.com/articles/10.1186/s12917-021-02969-9)
